@@ -44,6 +44,7 @@
       --white: #ffffff;
       --muted: #d8e7f1;
       --orange: #f4aa74;
+      --neon-green: #39ff14;
     }
 
     *,
@@ -207,6 +208,10 @@
       flex-shrink: 0;
     }
 
+    /* ==================================
+       NEON GREEN LAUNCH DOT
+    ================================== */
+
     .launch-dot {
       width: 9px;
       height: 9px;
@@ -214,10 +219,13 @@
       flex-shrink: 0;
 
       border-radius: 50%;
-      background: var(--orange);
+
+      background: var(--neon-green);
 
       box-shadow:
-        0 0 0 5px rgba(244,170,116,0.15);
+        0 0 0 5px rgba(57,255,20,0.14),
+        0 0 8px rgba(57,255,20,0.9),
+        0 0 16px rgba(57,255,20,0.6);
     }
 
     /* ==================================
@@ -651,32 +659,44 @@
 
       /* ------------------------------
          MOBILE LAUNCHING BADGE
+         CENTERED AND BIGGER
       ------------------------------ */
 
       .launching {
         display: inline-flex;
 
         align-items: center;
-        justify-content: flex-start;
+        justify-content: center;
 
-        align-self: flex-start;
+        align-self: center;
 
-        gap: 10px;
+        gap: 12px;
 
-        padding: 10px 15px;
+        padding: 14px 24px;
 
-        font-size: 10px;
+        font-size: 12px;
         font-weight: 700;
-        letter-spacing: 2px;
+        letter-spacing: 2.4px;
 
         border-radius: 50px;
 
         white-space: nowrap;
       }
 
+      /* ------------------------------
+         MOBILE NEON GREEN DOT
+      ------------------------------ */
+
       .launch-dot {
-        width: 8px;
-        height: 8px;
+        width: 12px;
+        height: 12px;
+
+        background: var(--neon-green);
+
+        box-shadow:
+          0 0 0 6px rgba(57,255,20,0.14),
+          0 0 10px rgba(57,255,20,0.95),
+          0 0 20px rgba(57,255,20,0.65);
       }
 
       /* ------------------------------
@@ -958,11 +978,15 @@
         width: 190px;
       }
 
-      .launching {
-        padding: 9px 13px;
+      /* KEEP BADGE CENTERED */
 
-        font-size: 9px;
-        letter-spacing: 1.8px;
+      .launching {
+        align-self: center;
+
+        padding: 12px 20px;
+
+        font-size: 11px;
+        letter-spacing: 2px;
       }
 
       .hero {
@@ -1062,6 +1086,18 @@
 
       .brand-wordmark {
         width: 165px;
+      }
+
+      .launching {
+        padding: 10px 15px;
+
+        font-size: 10px;
+        letter-spacing: 1.5px;
+      }
+
+      .launch-dot {
+        width: 10px;
+        height: 10px;
       }
 
       .hero-title {
