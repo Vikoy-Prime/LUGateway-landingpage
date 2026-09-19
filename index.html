@@ -1,0 +1,982 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="La Union Gateway is launching soon. Your gateway to stays, places, experiences, and everything La Union.">
+
+<title>La Union Gateway | Coming Soon</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* ==================================
+   GLOBAL SETTINGS
+================================== */
+
+:root {
+  --navy: #102e49;
+  --dark: #0b253b;
+  --blue: #137eaf;
+  --aqua: #7ee4f4;
+  --white: #ffffff;
+  --muted: #d8e7f1;
+  --orange: #f4aa74;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  color: var(--white);
+  background: #0b354d;
+}
+
+/* ==================================
+   FULL SCREEN BACKGROUND
+================================== */
+
+.landing {
+  position: relative;
+
+  min-height: 100vh;
+  min-height: 100svh;
+
+  display: flex;
+  flex-direction: column;
+
+  isolation: isolate;
+  overflow: hidden;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(7, 35, 62, 0.72) 0%,
+      rgba(9, 49, 80, 0.52) 36%,
+      rgba(5, 35, 62, 0.16) 65%,
+      rgba(4, 26, 45, 0.32) 100%
+    ),
+    url("./beach-bg.png");
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* Decorative gradient near footer */
+
+.landing::after {
+  content: "";
+
+  position: absolute;
+  inset: auto 0 0;
+
+  height: 220px;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(3, 20, 34, 0.58),
+      transparent
+    );
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ==================================
+   HEADER
+================================== */
+
+.header {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1800px;
+
+  margin: 0 auto;
+  padding: 30px 5%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+/* BRAND */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.brand-logo {
+  width: 92px;
+  height: 105px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.brand-name {
+  font-family: "Outfit", sans-serif;
+
+  font-size: 39px;
+  font-weight: 600;
+  line-height: 1.1;
+
+  letter-spacing: 3px;
+}
+
+.brand-sub {
+  margin-top: 4px;
+
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 10px;
+}
+
+.brand-tag {
+  margin-top: 12px;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 3px;
+
+  color: rgba(255,255,255,0.85);
+}
+
+/* ==================================
+   LAUNCHING BADGE
+================================== */
+
+.launching {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+
+  padding: 14px 22px;
+
+  border: 1px solid rgba(255,255,255,0.65);
+  border-radius: 50px;
+
+  background: rgba(255,255,255,0.13);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  white-space: nowrap;
+}
+
+.launch-dot {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+  background: var(--orange);
+
+  box-shadow:
+    0 0 0 5px rgba(244,170,116,0.15);
+}
+
+/* ==================================
+   HERO LAYOUT
+================================== */
+
+.hero {
+  position: relative;
+  z-index: 1;
+
+  flex: 1;
+
+  width: 100%;
+  max-width: 1800px;
+
+  margin: auto;
+
+  padding: 45px 5% 70px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0,1.15fr)
+    minmax(340px,0.85fr);
+
+  align-items: center;
+
+  gap: clamp(30px, 5vw, 90px);
+}
+
+/* ==================================
+   LEFT HERO CONTENT
+================================== */
+
+.hero-content {
+  max-width: 800px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-bottom: 25px;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+
+  color: #d9f3ff;
+}
+
+.eyebrow::before {
+  content: "";
+
+  width: 45px;
+  height: 2px;
+
+  background: var(--aqua);
+  flex-shrink: 0;
+}
+
+/* MAIN HEADING */
+
+.hero-title {
+  font-family: "Outfit", sans-serif;
+
+  font-size: clamp(48px, 5.3vw, 88px);
+  font-weight: 600;
+
+  line-height: 1.05;
+  letter-spacing: -2.5px;
+
+  text-shadow:
+    0 3px 22px rgba(0,0,0,0.13);
+}
+
+.hero-title span {
+  display: block;
+
+  color: var(--aqua);
+}
+
+/* DESCRIPTION */
+
+.hero-description {
+  max-width: 560px;
+
+  margin-top: 24px;
+
+  font-size: 18px;
+  line-height: 1.75;
+
+  color: #f0f9ff;
+}
+
+/* ==================================
+   COMING SOON ANNOUNCEMENT
+================================== */
+
+.coming-soon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  margin-top: 32px;
+
+  padding: 16px 28px;
+
+  border: 1px solid rgba(255,255,255,0.70);
+  border-radius: 50px;
+
+  background: rgba(255,255,255,0.92);
+
+  color: var(--navy);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,0.12);
+}
+
+.coming-soon .arrow {
+  color: var(--blue);
+  font-size: 20px;
+}
+
+/* ==================================
+   SIGNATURE
+================================== */
+
+.signature {
+  margin-top: 34px;
+
+  font-family: Georgia, serif;
+  font-style: italic;
+
+  font-size: 31px;
+  line-height: 1.3;
+
+  color: #e0f9ff;
+
+  transform: rotate(-4deg);
+  transform-origin: left center;
+
+  text-shadow: 0 2px 12px rgba(0,0,0,0.17);
+}
+
+/* ==================================
+   RIGHT FEATURE PANEL
+================================== */
+
+.feature-panel {
+  width: 100%;
+  max-width: 465px;
+
+  justify-self: end;
+
+  padding: 22px 34px;
+
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15,57,88,0.79),
+      rgba(9,35,59,0.77)
+    );
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  box-shadow:
+    0 20px 65px rgba(0,0,0,0.18);
+}
+
+/* FEATURE ROW */
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 22px;
+  padding: 25px 0;
+}
+
+.feature + .feature {
+  border-top:
+    1px solid rgba(255,255,255,0.22);
+}
+
+/* FEATURE ICON */
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid rgba(255,255,255,0.70);
+  border-radius: 50%;
+}
+
+.feature-icon svg {
+  width: 26px;
+  height: 26px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.feature h3 {
+  margin-bottom: 8px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 2.5px;
+}
+
+.feature p {
+  font-size: 14px;
+  line-height: 1.6;
+
+  color: var(--muted);
+}
+
+/* ==================================
+   FOOTER
+================================== */
+
+.footer {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 1800px;
+
+  margin: 0 auto;
+  padding: 25px 5%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+
+  border-top: 1px solid rgba(255,255,255,0.20);
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  color: rgba(255,255,255,0.88);
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 23px;
+}
+
+/* ==================================
+   ANIMATIONS
+================================== */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-content {
+    animation: fadeUp 0.9s ease both;
+  }
+
+  .feature-panel {
+    animation: fadeUp 0.9s ease 0.2s both;
+  }
+
+  .launch-dot {
+    animation: pulse 2.5s infinite;
+  }
+}
+
+/* ==================================
+   TABLET RESPONSIVE
+================================== */
+
+@media (max-width: 1050px) {
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 42px;
+    padding-top: 50px;
+  }
+
+  .hero-content {
+    max-width: 760px;
+  }
+
+  .hero-title {
+    font-size: clamp(48px,7vw,75px);
+  }
+
+  .feature-panel {
+    max-width: 100%;
+    justify-self: stretch;
+  }
+
+  .feature {
+    padding: 20px 0;
+  }
+
+}
+
+/* ==================================
+   MOBILE RESPONSIVE
+================================== */
+
+@media (max-width: 640px) {
+
+  .landing {
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(7,35,62,0.76) 0%,
+        rgba(9,49,80,0.70) 50%,
+        rgba(4,26,45,0.62) 100%
+      ),
+      url("./beach-bg.png");
+
+    background-position: 58% center;
+  }
+
+  .header {
+    padding: 24px 6%;
+
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 18px;
+  }
+
+  .brand {
+    gap: 10px;
+  }
+
+  .brand-logo {
+    width: 53px;
+    height: 65px;
+  }
+
+  .brand-name {
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
+
+  .brand-sub {
+    font-size: 11px;
+    letter-spacing: 6px;
+  }
+
+  .brand-tag {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+
+  .launching {
+    padding: 10px 15px;
+
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .hero {
+    padding: 45px 6% 60px;
+    gap: 45px;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    line-height: 1.6;
+  }
+
+  .eyebrow::before {
+    width: 23px;
+  }
+
+  .hero-title {
+    font-size: clamp(43px,10.4vw,61px);
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+  }
+
+  .hero-description {
+    margin-top: 23px;
+
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .coming-soon {
+    padding: 14px 22px;
+    font-size: 10px;
+  }
+
+  .signature {
+    margin-top: 28px;
+    font-size: 27px;
+  }
+
+  .feature-panel {
+    padding: 14px 23px;
+    border-radius: 16px;
+  }
+
+  .feature {
+    gap: 17px;
+    padding: 20px 0;
+  }
+
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .feature-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .feature h3 {
+    font-size: 12px;
+  }
+
+  .feature p {
+    font-size: 13px;
+  }
+
+  .footer {
+    padding: 25px 6%;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    font-size: 9px;
+    line-height: 1.6;
+  }
+
+  .footer-nav {
+    gap: 12px 18px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="landing">
+
+  <!-- ==================================
+       HEADER
+  ================================== -->
+
+  <header class="header">
+
+    <div class="brand">
+
+      <img
+        src="./logo.png"
+        alt="La Union Gateway logo"
+        class="brand-logo"
+        width="92"
+        height="105"
+      >
+
+      <div class="brand-text">
+
+        <div class="brand-name">
+          LA UNION
+        </div>
+
+        <div class="brand-sub">
+          GATEWAY
+        </div>
+
+        <div class="brand-tag">
+          STAYS · PLACES · EXPERIENCES
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="launching">
+
+      <span
+        class="launch-dot"
+        aria-hidden="true"
+      ></span>
+
+      LAUNCHING SOON
+
+    </div>
+
+  </header>
+
+
+  <!-- ==================================
+       HERO SECTION
+  ================================== -->
+
+  <main class="hero">
+
+    <!-- LEFT CONTENT -->
+
+    <section class="hero-content">
+
+      <p class="eyebrow">
+        SAME WAVES. A GREATER WAY TO EXPLORE.
+      </p>
+
+      <h1 class="hero-title">
+
+        Your gateway to<br>
+        everything
+
+        <span>La Union.</span>
+
+      </h1>
+
+      <p class="hero-description">
+
+        A one-stop hub for stays, places,
+        experiences, and local stories
+        across La Union is on the way.
+
+      </p>
+
+      <div class="coming-soon">
+
+        COMING SOON
+
+        <span
+          class="arrow"
+          aria-hidden="true"
+        >→</span>
+
+      </div>
+
+      <div class="signature">
+
+        Same Waves.<br>
+        Brighter Journeys Ahead.
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================
+         RIGHT FEATURE PANEL
+    ================================== -->
+
+    <aside
+      class="feature-panel"
+      aria-label="What is coming to La Union Gateway"
+    >
+
+      <!-- STAYS -->
+
+      <div class="feature">
+
+        <div class="feature-icon">
+
+          <svg viewBox="0 0 24 24"
+          aria-hidden="true">
+
+            <path d="M3 10L12 3L21 10"/>
+
+            <path d="M5 9V21H19V9"/>
+
+            <path d="M10 21V14H14V21"/>
+
+          </svg>
+
+        </div>
+
+        <div>
+
+          <h3>STAYS</h3>
+
+          <p>
+            Hostels, transient houses,
+            homestays &amp; more
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- EXPLORE -->
+
+      <div class="feature">
+
+        <div class="feature-icon">
+
+          <svg viewBox="0 0 24 24"
+          aria-hidden="true">
+
+            <path
+              d="M20 10C20 16 12 22 12 22S4 16 4 10a8 8 0 1 1 16 0Z"
+            />
+
+            <circle cx="12" cy="10" r="2.5"/>
+
+          </svg>
+
+        </div>
+
+        <div>
+
+          <h3>EXPLORE</h3>
+
+          <p>
+            Discover towns, beaches
+            &amp; destinations
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- LOCAL -->
+
+      <div class="feature">
+
+        <div class="feature-icon">
+
+          <svg viewBox="0 0 24 24"
+          aria-hidden="true">
+
+            <path d="M3 9L5 3H19L21 9"/>
+
+            <path d="M3 9H21V21H3V9Z"/>
+
+            <path d="M9 21V14H15V21"/>
+
+            <path d="M3 9C3 12 7 12 7 9"/>
+
+            <path d="M7 9C7 12 12 12 12 9"/>
+
+            <path d="M12 9C12 12 17 12 17 9"/>
+
+            <path d="M17 9C17 12 21 12 21 9"/>
+
+          </svg>
+
+        </div>
+
+        <div>
+
+          <h3>LOCAL</h3>
+
+          <p>
+            Connect directly with
+            local businesses
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- GUIDES -->
+
+      <div class="feature">
+
+        <div class="feature-icon">
+
+          <svg viewBox="0 0 24 24"
+          aria-hidden="true">
+
+            <circle cx="12" cy="12" r="9"/>
+
+            <path
+              d="M15.5 8.5L13.5 13.5L8.5 15.5L10.5 10.5L15.5 8.5Z"
+            />
+
+          </svg>
+
+        </div>
+
+        <div>
+
+          <h3>GUIDES</h3>
+
+          <p>
+            Curated places, stories
+            &amp; recommendations
+          </p>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+  </main>
+
+
+  <!-- ==================================
+       FOOTER
+  ================================== -->
+
+  <footer class="footer">
+
+    <p>
+      © 2026 LA UNION GATEWAY.
+      ALL RIGHTS RESERVED.
+    </p>
+
+    <div class="footer-nav">
+
+      <span>STAY</span>
+
+      <span>EXPLORE</span>
+
+      <span>DISCOVER</span>
+
+      <span>CONNECT</span>
+
+      <span>EXPERIENCE</span>
+
+    </div>
+
+  </footer>
+
+</div>
+
+</body>
+</html>
