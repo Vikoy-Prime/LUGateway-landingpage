@@ -532,9 +532,45 @@
 
     @media (max-width: 1050px) {
 
+      /* CENTER LOGO AND BADGE */
+
       .header {
         padding: 22px 5%;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 20px;
+
+        text-align: center;
       }
+
+      .brand {
+        width: 100%;
+        max-width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background: transparent;
+      }
+
+      .brand-wordmark {
+        display: block;
+
+        max-width: 100%;
+        height: auto;
+      }
+
+      .launching {
+        align-self: center;
+      }
+
+      /* TABLET HERO */
 
       .hero {
         grid-template-columns: minmax(0,1fr);
@@ -555,6 +591,8 @@
         font-size: clamp(48px,7vw,75px);
       }
 
+      /* TABLET FEATURE PANEL */
+
       .feature-panel {
         max-width: 100%;
         justify-self: stretch;
@@ -563,6 +601,8 @@
       .feature {
         padding: 18px 0;
       }
+
+      /* TABLET FOOTER */
 
       .footer {
         gap: 18px;
@@ -607,14 +647,15 @@
 
       /* ------------------------------
          MOBILE HEADER
+         CENTERED LOGO AND BADGE
       ------------------------------ */
 
       .header {
         display: flex;
         flex-direction: column;
 
-        align-items: flex-start;
-        justify-content: flex-start;
+        align-items: center;
+        justify-content: center;
 
         width: 100%;
 
@@ -622,19 +663,23 @@
 
         gap: 22px;
 
-        margin: 0;
+        margin: 0 auto;
+
+        text-align: center;
       }
 
       /* ------------------------------
          MOBILE LOGO
-         TRANSPARENT BACKGROUND
+         CENTERED AND TRANSPARENT
       ------------------------------ */
 
       .brand {
-        width: fit-content;
+        width: 100%;
         max-width: 100%;
 
         display: flex;
+
+        justify-content: center;
         align-items: center;
 
         padding: 0;
@@ -655,6 +700,8 @@
         height: auto;
 
         object-fit: contain;
+
+        margin: 0 auto;
       }
 
       /* ------------------------------
@@ -681,6 +728,8 @@
         border-radius: 50px;
 
         white-space: nowrap;
+
+        margin: 0 auto;
       }
 
       /* ------------------------------
@@ -969,13 +1018,30 @@
 
     @media (max-width: 390px) {
 
+      /* KEEP HEADER CENTERED */
+
       .header {
         padding: 18px 5% 0;
         gap: 20px;
+
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+      }
+
+      .brand {
+        width: 100%;
+
+        justify-content: center;
+        align-items: center;
+
+        background: transparent;
       }
 
       .brand-wordmark {
         width: 190px;
+        margin: 0 auto;
       }
 
       /* KEEP BADGE CENTERED */
@@ -987,6 +1053,8 @@
 
         font-size: 11px;
         letter-spacing: 2px;
+
+        margin: 0 auto;
       }
 
       .hero {
