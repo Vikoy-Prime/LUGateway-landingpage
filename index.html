@@ -318,14 +318,14 @@
       </h1>
 
       <p class="desc">
-        A considered hub for stays, places, and experiences across the coast - built for travelers who want the province's best, without the guesswork.
+        A considered hub for stays, places, and experiences across the coast — built for travelers who want the province's best, without the guesswork.
       </p>
 
       <p class="tagline">Same waves. Brighter journeys ahead.</p>
 
       <div class="notify">
-        <form id="notify-form">
-          <input type="email" id="notify-email" placeholder="Your email" required aria-label="Email address">
+        <form id="notify-form" action="https://formspree.io/f/xjykwoda" method="POST">
+          <input type="email" id="notify-email" name="email" placeholder="Your email" required aria-label="Email address">
           <button type="submit">Notify me</button>
         </form>
         <p class="msg" id="notify-msg" role="status"></p>
@@ -379,10 +379,41 @@
 <script>
   var form = document.getElementById('notify-form');
   var msg = document.getElementById('notify-msg');
+  var submitBtn = form.querySelector('button');
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    msg.textContent = "You're on the list — we'll be in touch.";
-    form.reset();
+
+    submitBtn.disabled = true;
+    msg.textContent = "Sending…";
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(response){
+      if (response.ok) {
+        msg.textContent = "You're on the list — we'll be in touch.";
+        form.reset();
+      } else {
+        response.json().then(function(data){
+          if (data && data.errors && data.errors.length) {
+            msg.textContent = data.errors.map(function(err){ return err.message; }).join(', ');
+          } else {
+            msg.textContent = "Something went wrong. Please try again.";
+          }
+        }).catch(function(){
+          msg.textContent = "Something went wrong. Please try again.";
+        });
+      }
+    })
+    .catch(function(){
+      msg.textContent = "Something went wrong. Please check your connection.";
+    })
+    .finally(function(){
+      submitBtn.disabled = false;
+    });
   });
 </script>
 
