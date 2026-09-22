@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -210,7 +210,7 @@
 
     grid-template-columns:
       minmax(0,1fr)
-      minmax(340px,420px);
+      minmax(420px,520px);
 
     align-items:end;
 
@@ -541,7 +541,7 @@
   .panel{
     justify-self:end;
     width:100%;
-    max-width:420px;
+    max-width:520px;
   }
 
   .feature{
@@ -580,7 +580,7 @@
   }
 
   .feature p{
-    font-size:17px;
+    font-size:16px;
     line-height:1.7;
     color:rgba(243,237,225,0.75);
   }
@@ -650,7 +650,7 @@
 
   /* ---------- responsive ---------- */
 
-  @media (max-width:980px){
+  @media (max-width:1120px){
 
     .hero{
       grid-template-columns:minmax(0,1fr);
@@ -724,16 +724,16 @@
       padding:22px 6% 28px;
     }
 
-    /* Fit the full copyright statement
-       on one line on mobile. */
+    /* Keep the copyright statement on one line where it fits;
+       wrap gracefully instead of overflowing on very narrow screens. */
 
     .footer > p{
       width:100%;
-      font-size:clamp(7px,2.1vw,9px);
+      font-size:clamp(8px,2.3vw,9px);
       letter-spacing:0.2px;
       line-height:1.6;
       text-align:center;
-      white-space:nowrap;
+      overflow-wrap:break-word;
     }
   }
 
@@ -1043,6 +1043,37 @@
   var modalSubmitBtn = modalForm.querySelector('button');
   var lastFocused = null;
 
+  function getFocusable(){
+    return Array.prototype.slice.call(
+      overlay.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )
+    );
+  }
+
+  function trapFocus(e){
+
+    if (e.key !== 'Tab') return;
+
+    var focusable = getFocusable();
+
+    if (!focusable.length) return;
+
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+
+      e.preventDefault();
+      last.focus();
+
+    } else if (!e.shiftKey && document.activeElement === last) {
+
+      e.preventDefault();
+      first.focus();
+    }
+  }
+
   function openModal(){
 
     lastFocused = document.activeElement;
@@ -1054,6 +1085,8 @@
     document.body.style.overflow = 'hidden';
 
     modalName.focus();
+
+    document.addEventListener('keydown', trapFocus);
   }
 
   function closeModal(){
@@ -1063,6 +1096,8 @@
     document.body.style.overflow = '';
 
     modalMsg.textContent = '';
+
+    document.removeEventListener('keydown', trapFocus);
 
     if (lastFocused) lastFocused.focus();
   }
