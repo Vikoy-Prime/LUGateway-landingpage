@@ -213,6 +213,96 @@
     min-height:16px;
   }
 
+  /* ---------- modal ---------- */
+  .modal-overlay{
+    position:fixed;inset:0;
+    background:rgba(6,15,20,0.74);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+    display:flex;align-items:center;justify-content:center;
+    padding:24px;
+    z-index:50;
+  }
+  .modal-overlay[hidden]{display:none;}
+  .modal{
+    position:relative;
+    width:100%;max-width:440px;
+    background:linear-gradient(160deg, rgba(15,44,57,0.98), rgba(9,25,33,0.98));
+    border:1px solid var(--line);
+    padding:clamp(32px,5vw,48px);
+    box-shadow:0 40px 100px rgba(0,0,0,0.5);
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .modal{animation:rise .5s cubic-bezier(.19,1,.22,1) both;}
+  }
+  .modal-close{
+    position:absolute;top:18px;right:18px;
+    width:28px;height:28px;
+    display:flex;align-items:center;justify-content:center;
+    background:none;border:none;
+    font-size:20px;line-height:1;
+    color:var(--sand);
+    cursor:pointer;
+    transition:color .2s ease;
+  }
+  .modal-close:hover{color:var(--gold-soft);}
+  .modal-title{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:450;
+    font-size:26px;
+    color:var(--cream);
+  }
+  .modal-sub{
+    margin-top:10px;margin-bottom:30px;
+    font-size:13px;line-height:1.6;
+    color:rgba(243,237,225,0.58);
+    max-width:340px;
+  }
+  .modal .field{margin-bottom:22px;}
+  .modal .field label{
+    display:block;
+    margin-bottom:9px;
+    font-size:10px;font-weight:500;letter-spacing:2.2px;
+    color:var(--gold-soft);
+  }
+  .modal .field input,
+  .modal .field textarea{
+    width:100%;
+    background:transparent;border:none;
+    border-bottom:1px solid var(--line);
+    outline:none;
+    padding:6px 0 10px;
+    font-family:'Jost',sans-serif;
+    font-weight:300;font-size:15px;
+    color:var(--cream);
+    resize:vertical;
+  }
+  .modal .field input::placeholder,
+  .modal .field textarea::placeholder{color:rgba(243,237,225,0.35);}
+  .modal .field input:focus-visible,
+  .modal .field textarea:focus-visible{outline:1px solid var(--gold-soft);outline-offset:4px;}
+  .modal-submit{
+    margin-top:10px;
+    width:100%;
+    padding:14px 0;
+    background:none;
+    border:1px solid var(--gold);
+    font-family:'Jost',sans-serif;
+    font-size:11px;font-weight:500;letter-spacing:2.6px;
+    color:var(--gold-soft);
+    cursor:pointer;
+    transition:background .25s ease, color .25s ease;
+  }
+  .modal-submit:hover{background:var(--gold);color:var(--ink);}
+  .modal-submit:disabled{opacity:0.55;cursor:default;background:none;color:var(--gold-soft);}
+  .modal-msg{
+    margin-top:16px;
+    font-size:12px;letter-spacing:0.5px;
+    color:var(--gold-soft);
+    min-height:16px;
+  }
+
   /* ---------- feature panel ---------- */
   .panel{
     justify-self:end;width:100%;
@@ -311,7 +401,7 @@
 
   <main class="hero">
     <div class="hero-main">
-      <p class="eyebrow">Same waves, a finer way to arrive</p>
+      <p class="eyebrow">A quieter way to know the coast</p>
 
       <h1 class="headline">
         Your gateway to<br>everything <em>ELYU.</em>
@@ -329,6 +419,37 @@
           <button type="submit">Notify me</button>
         </form>
         <p class="msg" id="notify-msg" role="status"></p>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-overlay" hidden>
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button type="button" class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+        <h2 id="modal-title" class="modal-title">Just a few details</h2>
+        <p class="modal-sub">We'll only use this to let you know when La Union Gateway launches.</p>
+
+        <form id="modal-form">
+          <input type="hidden" id="modal-email" name="email">
+
+          <div class="field">
+            <label for="modal-name">Name</label>
+            <input type="text" id="modal-name" name="name" required autocomplete="name">
+          </div>
+
+          <div class="field">
+            <label for="modal-phone">Phone number</label>
+            <input type="tel" id="modal-phone" name="phone" placeholder="Optional" autocomplete="tel">
+          </div>
+
+          <div class="field">
+            <label for="modal-message">Message</label>
+            <textarea id="modal-message" name="message" rows="3" placeholder="Optional"></textarea>
+          </div>
+
+          <button type="submit" class="modal-submit">Send</button>
+        </form>
+
+        <p class="modal-msg" id="modal-msg" role="status"></p>
       </div>
     </div>
 
@@ -378,41 +499,86 @@
 
 <script>
   var form = document.getElementById('notify-form');
+  var emailInput = document.getElementById('notify-email');
   var msg = document.getElementById('notify-msg');
-  var submitBtn = form.querySelector('button');
 
+  var overlay = document.getElementById('modal-overlay');
+  var modalForm = document.getElementById('modal-form');
+  var modalEmail = document.getElementById('modal-email');
+  var modalName = document.getElementById('modal-name');
+  var modalMsg = document.getElementById('modal-msg');
+  var modalClose = document.getElementById('modal-close');
+  var modalSubmitBtn = modalForm.querySelector('button');
+  var lastFocused = null;
+
+  function openModal(){
+    lastFocused = document.activeElement;
+    modalEmail.value = emailInput.value;
+    overlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+    modalName.focus();
+  }
+
+  function closeModal(){
+    overlay.hidden = true;
+    document.body.style.overflow = '';
+    modalMsg.textContent = '';
+    if (lastFocused) lastFocused.focus();
+  }
+
+  // Step 1: email field just opens the details popup
   form.addEventListener('submit', function(e){
     e.preventDefault();
+    if (!emailInput.checkValidity()) {
+      emailInput.reportValidity();
+      return;
+    }
+    openModal();
+  });
 
-    submitBtn.disabled = true;
-    msg.textContent = "Sending…";
+  modalClose.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e){
+    if (e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && !overlay.hidden) closeModal();
+  });
+
+  // Step 2: popup collects the rest and sends everything to Formspree
+  modalForm.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    modalSubmitBtn.disabled = true;
+    modalMsg.textContent = 'Sending…';
 
     fetch(form.action, {
       method: 'POST',
-      body: new FormData(form),
+      body: new FormData(modalForm),
       headers: { 'Accept': 'application/json' }
     })
     .then(function(response){
       if (response.ok) {
+        closeModal();
         msg.textContent = "You're on the list — we'll be in touch.";
         form.reset();
+        modalForm.reset();
       } else {
         response.json().then(function(data){
           if (data && data.errors && data.errors.length) {
-            msg.textContent = data.errors.map(function(err){ return err.message; }).join(', ');
+            modalMsg.textContent = data.errors.map(function(err){ return err.message; }).join(', ');
           } else {
-            msg.textContent = "Something went wrong. Please try again.";
+            modalMsg.textContent = 'Something went wrong. Please try again.';
           }
         }).catch(function(){
-          msg.textContent = "Something went wrong. Please try again.";
+          modalMsg.textContent = 'Something went wrong. Please try again.';
         });
       }
     })
     .catch(function(){
-      msg.textContent = "Something went wrong. Please check your connection.";
+      modalMsg.textContent = 'Something went wrong. Please check your connection.';
     })
     .finally(function(){
-      submitBtn.disabled = false;
+      modalSubmitBtn.disabled = false;
     });
   });
 </script>
