@@ -1,4 +1,5 @@
- <!DOCTYPE html>
+ 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,7 +7,8 @@
 <meta name="description" content="La Union Gateway — a curated hub for stays, places, and experiences across La Union. Arriving soon.">
 <title>La Union Gateway | Arriving Soon</title>
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a1a22'/%3E%3Cpath d='M0 62 Q25 52 50 62 T100 62' stroke='%23c7a25c' stroke-width='4' fill='none'/%3E%3C/svg%3E">
+<!-- LA UNION GATEWAY FAVICON -->
+<link rel="icon" type="image/png" href="/favicon.png">
 
 <link rel="canonical" href="https://launiongateway.com/">
 
@@ -40,125 +42,240 @@
     padding-top:env(safe-area-inset-top,0px);
     padding-bottom:env(safe-area-inset-bottom,0px);
   }
+
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-padding-top:env(safe-area-inset-top,0px);width:100%;overflow-x:clip;}
+
+  html{
+    scroll-padding-top:env(safe-area-inset-top,0px);
+    width:100%;
+    overflow-x:clip;
+  }
+
   body{
     font-family:'Jost',sans-serif;
     font-weight:300;
     color:var(--cream);
     background:var(--ink);
-    width:100%;min-width:280px;overflow-x:clip;
+    width:100%;
+    min-width:280px;
+    overflow-x:clip;
     -webkit-font-smoothing:antialiased;
   }
+
   img,svg{max-width:100%;display:block;}
   a{color:inherit;}
 
   /* ---------- page shell ---------- */
+
   .page{
     position:relative;
-    min-height:100vh;min-height:100svh;
-    display:flex;flex-direction:column;
-    isolation:isolate;overflow:hidden;
+    min-height:100vh;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    isolation:isolate;
+    overflow:hidden;
+
     background:
-      radial-gradient(ellipse 90% 60% at 78% -8%, rgba(199,162,92,0.16), transparent 60%),
-      radial-gradient(ellipse 70% 50% at 8% 108%, rgba(19,64,79,0.9), transparent 65%),
-      linear-gradient(180deg, rgba(10,26,34,0.82) 0%, rgba(13,39,51,0.62) 46%, rgba(10,30,40,0.86) 100%),
+      radial-gradient(
+        ellipse 90% 60% at 78% -8%,
+        rgba(199,162,92,0.16),
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 70% 50% at 8% 108%,
+        rgba(19,64,79,0.9),
+        transparent 65%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(10,26,34,0.82) 0%,
+        rgba(13,39,51,0.62) 46%,
+        rgba(10,30,40,0.86) 100%
+      ),
       url("./images/beach-bg.png");
+
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
   }
 
   /* soft horizon line motif */
+
   .horizon{
-    position:absolute;left:0;right:0;
+    position:absolute;
+    left:0;
+    right:0;
     top:56%;
     height:1px;
-    background:linear-gradient(90deg, transparent, rgba(231,215,181,0.28) 20%, rgba(231,215,181,0.42) 50%, rgba(231,215,181,0.28) 80%, transparent);
+
+    background:linear-gradient(
+      90deg,
+      transparent,
+      rgba(231,215,181,0.28) 20%,
+      rgba(231,215,181,0.42) 50%,
+      rgba(231,215,181,0.28) 80%,
+      transparent
+    );
+
     z-index:0;
     pointer-events:none;
   }
+
   .grain{
-    position:absolute;inset:0;
+    position:absolute;
+    inset:0;
+
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+
     mix-blend-mode:overlay;
     pointer-events:none;
     z-index:1;
   }
 
   /* ---------- header ---------- */
+
   .header{
-    position:relative;z-index:2;
-    width:100%;max-width:1400px;margin:0 auto;
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+
     padding:38px clamp(24px,5vw,64px) 0;
-    display:flex;align-items:flex-start;justify-content:space-between;
+
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+
     gap:24px;
   }
+
   .wordmark{
-    display:flex;flex-direction:row;
+    display:flex;
+    flex-direction:row;
     align-items:baseline;
     gap:12px;
     line-height:1;
   }
+
   .wordmark .top{
     font-family:'Fraunces',serif;
     font-weight:450;
     font-size:clamp(20px,2.2vw,26px);
     letter-spacing:1px;
   }
+
   .wordmark .bottom{
     font-size:15px;
     font-weight:400;
     letter-spacing:5px;
     color:var(--gold-soft);
   }
+
   .badge{
-    display:inline-flex;align-items:center;gap:11px;
+    display:inline-flex;
+    align-items:center;
+    gap:11px;
+
     padding:11px 20px;
+
     border:1px solid var(--line);
     border-radius:2px;
-    font-size:10px;font-weight:400;letter-spacing:2.6px;
+
+    font-size:10px;
+    font-weight:400;
+    letter-spacing:2.6px;
+
     color:var(--sand);
     white-space:nowrap;
   }
+
   .badge .dot{
-    width:5px;height:5px;border-radius:50%;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+
     background:var(--neon-green);
     box-shadow:0 0 8px 1px rgba(57,255,20,0.7);
   }
+
   @media (prefers-reduced-motion:no-preference){
-    .badge .dot{animation:breathe 3.2s ease-in-out infinite;}
+    .badge .dot{
+      animation:breathe 3.2s ease-in-out infinite;
+    }
   }
-  @keyframes breathe{0%,100%{opacity:1;}50%{opacity:0.35;}}
+
+  @keyframes breathe{
+    0%,100%{opacity:1;}
+    50%{opacity:0.35;}
+  }
 
   /* ---------- hero ---------- */
+
   .hero{
-    position:relative;z-index:2;
+    position:relative;
+    z-index:2;
+
     flex:1;
-    width:100%;max-width:1400px;margin:0 auto;
-    padding:clamp(56px,9vh,120px) clamp(24px,5vw,64px) clamp(40px,7vh,88px);
+
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+
+    padding:clamp(56px,9vh,120px)
+            clamp(24px,5vw,64px)
+            clamp(40px,7vh,88px);
+
     display:grid;
-    grid-template-columns:minmax(0,1fr) minmax(280px,340px);
+
+    grid-template-columns:
+      minmax(0,1fr)
+      minmax(280px,340px);
+
     align-items:end;
+
     gap:clamp(40px,6vw,80px);
   }
-  .hero-main{max-width:760px;}
-  .eyebrow{
-    font-size:12px;font-weight:400;letter-spacing:3.2px;
-    color:var(--gold-soft);
-    margin-bottom:26px;
-    display:flex;align-items:center;gap:14px;
+
+  .hero-main{
+    max-width:760px;
   }
-  .eyebrow::before{content:"";width:34px;height:1px;background:var(--gold);flex-shrink:0;}
+
+  .eyebrow{
+    font-size:12px;
+    font-weight:400;
+    letter-spacing:3.2px;
+
+    color:var(--gold-soft);
+
+    margin-bottom:26px;
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+
+  .eyebrow::before{
+    content:"";
+    width:34px;
+    height:1px;
+    background:var(--gold);
+    flex-shrink:0;
+  }
 
   .headline{
     font-family:'Fraunces',serif;
     font-weight:450;
+
     font-size:clamp(42px,6.4vw,84px);
     line-height:1.04;
     letter-spacing:-1px;
+
     color:var(--cream);
   }
+
   .headline em{
     font-style:italic;
     font-weight:450;
@@ -168,57 +285,90 @@
   .desc{
     margin-top:28px;
     max-width:460px;
+
     font-size:17px;
     line-height:1.8;
+
     color:rgba(243,237,225,0.72);
   }
 
   .tagline{
     margin-top:40px;
+
     font-family:'Fraunces',serif;
     font-style:italic;
     font-weight:450;
+
     font-size:clamp(20px,2.3vw,25px);
     color:var(--gold-soft);
+
     padding-top:22px;
     border-top:1px solid var(--line);
+
     max-width:460px;
   }
 
   /* notify form */
+
   .notify{
     margin-top:44px;
     max-width:420px;
   }
+
   .notify form{
     display:flex;
     border-bottom:1px solid var(--line);
     padding-bottom:14px;
     gap:16px;
   }
+
   .notify input{
-    flex:1;min-width:0;
-    background:transparent;border:none;outline:none;
+    flex:1;
+    min-width:0;
+
+    background:transparent;
+    border:none;
+    outline:none;
+
     font-family:'Jost',sans-serif;
     font-weight:300;
     font-size:15px;
+
     color:var(--cream);
     letter-spacing:0.3px;
   }
-  .notify input::placeholder{color:rgba(243,237,225,0.4);}
+
+  .notify input::placeholder{
+    color:rgba(243,237,225,0.4);
+  }
+
   .notify button{
-    background:none;border:none;
+    background:none;
+    border:none;
+
     font-family:'Jost',sans-serif;
-    font-size:11px;font-weight:500;letter-spacing:2.4px;
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:2.4px;
+
     color:var(--gold-soft);
     cursor:pointer;
     white-space:nowrap;
     padding:0;
+
     transition:opacity .25s ease;
   }
-  .notify button:hover{opacity:0.68;}
+
+  .notify button:hover{
+    opacity:0.68;
+  }
+
   .notify button:focus-visible,
-  .notify input:focus-visible{outline:1px solid var(--gold-soft);outline-offset:4px;}
+  .notify input:focus-visible{
+    outline:1px solid var(--gold-soft);
+    outline-offset:4px;
+  }
+
   .notify .msg{
     margin-top:12px;
     font-size:12px;
@@ -228,142 +378,277 @@
   }
 
   /* ---------- modal ---------- */
+
   .modal-overlay{
-    position:fixed;inset:0;
+    position:fixed;
+    inset:0;
+
     background:rgba(6,15,20,0.74);
+
     backdrop-filter:blur(6px);
     -webkit-backdrop-filter:blur(6px);
-    display:flex;align-items:center;justify-content:center;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
     padding:24px;
     z-index:50;
   }
-  .modal-overlay[hidden]{display:none;}
+
+  .modal-overlay[hidden]{
+    display:none;
+  }
+
   .modal{
     position:relative;
-    width:100%;max-width:440px;
-    background:linear-gradient(160deg, rgba(15,44,57,0.98), rgba(9,25,33,0.98));
+
+    width:100%;
+    max-width:440px;
+
+    background:linear-gradient(
+      160deg,
+      rgba(15,44,57,0.98),
+      rgba(9,25,33,0.98)
+    );
+
     border:1px solid var(--line);
+
     padding:clamp(32px,5vw,48px);
+
     box-shadow:0 40px 100px rgba(0,0,0,0.5);
   }
+
   @media (prefers-reduced-motion:no-preference){
-    .modal{animation:rise .5s cubic-bezier(.19,1,.22,1) both;}
+    .modal{
+      animation:rise .5s cubic-bezier(.19,1,.22,1) both;
+    }
   }
+
   .modal-close{
-    position:absolute;top:18px;right:18px;
-    width:28px;height:28px;
-    display:flex;align-items:center;justify-content:center;
-    background:none;border:none;
-    font-size:20px;line-height:1;
+    position:absolute;
+    top:18px;
+    right:18px;
+
+    width:28px;
+    height:28px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:none;
+    border:none;
+
+    font-size:20px;
+    line-height:1;
+
     color:var(--sand);
     cursor:pointer;
+
     transition:color .2s ease;
   }
-  .modal-close:hover{color:var(--gold-soft);}
+
+  .modal-close:hover{
+    color:var(--gold-soft);
+  }
+
   .modal-title{
     font-family:'Fraunces',serif;
     font-style:italic;
     font-weight:450;
+
     font-size:26px;
     color:var(--cream);
   }
+
   .modal-sub{
-    margin-top:10px;margin-bottom:30px;
-    font-size:13px;line-height:1.6;
+    margin-top:10px;
+    margin-bottom:30px;
+
+    font-size:13px;
+    line-height:1.6;
+
     color:rgba(243,237,225,0.58);
     max-width:340px;
   }
-  .modal .field{margin-bottom:22px;}
+
+  .modal .field{
+    margin-bottom:22px;
+  }
+
   .modal .field label{
     display:block;
     margin-bottom:9px;
-    font-size:10px;font-weight:500;letter-spacing:2.2px;
+
+    font-size:10px;
+    font-weight:500;
+    letter-spacing:2.2px;
+
     color:var(--gold-soft);
   }
+
   .modal .field input,
   .modal .field textarea{
     width:100%;
-    background:transparent;border:none;
+
+    background:transparent;
+    border:none;
     border-bottom:1px solid var(--line);
     outline:none;
+
     padding:6px 0 10px;
+
     font-family:'Jost',sans-serif;
-    font-weight:300;font-size:15px;
+    font-weight:300;
+    font-size:15px;
+
     color:var(--cream);
     resize:vertical;
   }
+
   .modal .field input::placeholder,
-  .modal .field textarea::placeholder{color:rgba(243,237,225,0.35);}
+  .modal .field textarea::placeholder{
+    color:rgba(243,237,225,0.35);
+  }
+
   .modal .field input:focus-visible,
-  .modal .field textarea:focus-visible{outline:1px solid var(--gold-soft);outline-offset:4px;}
+  .modal .field textarea:focus-visible{
+    outline:1px solid var(--gold-soft);
+    outline-offset:4px;
+  }
+
   .modal-submit{
     margin-top:10px;
+
     width:100%;
     padding:14px 0;
+
     background:none;
     border:1px solid var(--gold);
+
     font-family:'Jost',sans-serif;
-    font-size:11px;font-weight:500;letter-spacing:2.6px;
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:2.6px;
+
     color:var(--gold-soft);
     cursor:pointer;
-    transition:background .25s ease, color .25s ease;
+
+    transition:background .25s ease,color .25s ease;
   }
-  .modal-submit:hover{background:var(--gold);color:var(--ink);}
-  .modal-submit:disabled{opacity:0.55;cursor:default;background:none;color:var(--gold-soft);}
+
+  .modal-submit:hover{
+    background:var(--gold);
+    color:var(--ink);
+  }
+
+  .modal-submit:disabled{
+    opacity:0.55;
+    cursor:default;
+    background:none;
+    color:var(--gold-soft);
+  }
+
   .modal-msg{
     margin-top:16px;
-    font-size:12px;letter-spacing:0.5px;
+    font-size:12px;
+    letter-spacing:0.5px;
     color:var(--gold-soft);
     min-height:16px;
   }
 
   /* ---------- feature panel ---------- */
+
   .panel{
-    justify-self:end;width:100%;
+    justify-self:end;
+    width:100%;
   }
+
   .feature{
-    display:flex;align-items:baseline;gap:20px;
+    display:flex;
+    align-items:baseline;
+    gap:20px;
+
     padding:22px 0;
     border-top:1px solid var(--line);
   }
-  .feature:last-child{border-bottom:1px solid var(--line);}
+
+  .feature:last-child{
+    border-bottom:1px solid var(--line);
+  }
+
   .feature .num{
     font-family:'Fraunces',serif;
     font-style:italic;
     font-size:14px;
+
     color:var(--gold);
+
     flex-shrink:0;
     width:24px;
   }
+
   .feature h3{
     font-family:'Jost',sans-serif;
-    font-size:14px;font-weight:500;letter-spacing:1px;
+
+    font-size:14px;
+    font-weight:500;
+    letter-spacing:1px;
+
     color:var(--cream);
     margin-bottom:6px;
   }
+
   .feature p{
-    font-size:13px;line-height:1.6;
+    font-size:13px;
+    line-height:1.6;
     color:rgba(243,237,225,0.58);
   }
 
   /* ---------- footer ---------- */
+
   .footer{
-    position:relative;z-index:2;
-    width:100%;max-width:1400px;margin:0 auto;
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+
     padding:26px clamp(24px,5vw,64px) 34px;
-    display:flex;justify-content:space-between;align-items:center;
-    flex-wrap:wrap;gap:16px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    flex-wrap:wrap;
+    gap:16px;
+
     border-top:1px solid var(--line);
-    font-size:10px;font-weight:400;letter-spacing:2px;
+
+    font-size:10px;
+    font-weight:400;
+    letter-spacing:2px;
+
     color:rgba(243,237,225,0.5);
   }
-  .footer-nav{display:flex;flex-wrap:wrap;gap:26px;}
+
+  .footer-nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:26px;
+  }
 
   /* ---------- entrance ---------- */
+
   @media (prefers-reduced-motion:no-preference){
-    .hero-main > *,.panel{
+
+    .hero-main > *,
+    .panel{
       animation:rise 1s cubic-bezier(.19,1,.22,1) both;
     }
+
     .eyebrow{animation-delay:.05s;}
     .headline{animation-delay:.14s;}
     .desc{animation-delay:.24s;}
@@ -371,21 +656,67 @@
     .notify{animation-delay:.42s;}
     .panel{animation-delay:.3s;}
   }
-  @keyframes rise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+
+  @keyframes rise{
+    from{
+      opacity:0;
+      transform:translateY(18px);
+    }
+
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
+  }
 
   /* ---------- responsive ---------- */
+
   @media (max-width:980px){
-    .hero{grid-template-columns:minmax(0,1fr);align-items:start;}
-    .panel{justify-self:stretch;max-width:520px;}
+
+    .hero{
+      grid-template-columns:minmax(0,1fr);
+      align-items:start;
+    }
+
+    .panel{
+      justify-self:stretch;
+      max-width:520px;
+    }
   }
+
   @media (max-width:640px){
-    .header{padding:28px 6% 0;}
-    .wordmark{flex-wrap:wrap;}
-    .wordmark .top{font-size:19px;}
-    .badge{padding:9px 15px;font-size:9px;letter-spacing:2px;}
-    .hero{padding:44px 6% 44px;gap:44px;}
-    /* Center only the mobile headline; preserve the desktop layout and other copy. */
-    .hero-main{width:100%;min-width:0;}
+
+    .header{
+      padding:28px 6% 0;
+    }
+
+    .wordmark{
+      flex-wrap:wrap;
+    }
+
+    .wordmark .top{
+      font-size:19px;
+    }
+
+    .badge{
+      padding:9px 15px;
+      font-size:9px;
+      letter-spacing:2px;
+    }
+
+    .hero{
+      padding:44px 6% 44px;
+      gap:44px;
+    }
+
+    /* Center only the mobile headline;
+       preserve the desktop layout and other copy. */
+
+    .hero-main{
+      width:100%;
+      min-width:0;
+    }
+
     .headline{
       width:100%;
       font-size:clamp(31px,8.8vw,42px);
@@ -393,11 +724,30 @@
       text-align:center;
       text-wrap:balance;
     }
-    .desc{font-size:15.5px;max-width:100%;}
-    .tagline{font-size:20px;max-width:100%;}
-    .notify{max-width:100%;}
-    .footer{flex-direction:column;align-items:flex-start;padding:22px 6% 28px;}
-    /* Fit the full copyright statement on one line on mobile. */
+
+    .desc{
+      font-size:15.5px;
+      max-width:100%;
+    }
+
+    .tagline{
+      font-size:20px;
+      max-width:100%;
+    }
+
+    .notify{
+      max-width:100%;
+    }
+
+    .footer{
+      flex-direction:column;
+      align-items:flex-start;
+      padding:22px 6% 28px;
+    }
+
+    /* Fit the full copyright statement
+       on one line on mobile. */
+
     .footer > p{
       width:100%;
       font-size:clamp(7px,2.1vw,9px);
@@ -407,32 +757,51 @@
       white-space:nowrap;
     }
   }
+
   @media (prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto;}
-    .hero-main > *,.panel,.badge .dot{animation:none !important;}
+
+    html{
+      scroll-behavior:auto;
+    }
+
+    .hero-main > *,
+    .panel,
+    .badge .dot{
+      animation:none !important;
+    }
   }
+
 </style>
 </head>
+
 <body>
 
 <div class="page">
+
   <div class="grain" aria-hidden="true"></div>
   <div class="horizon" aria-hidden="true"></div>
 
   <header class="header">
+
     <div class="wordmark">
       <span class="top">La Union</span>
       <span class="bottom">GATEWAY</span>
     </div>
+
     <div class="badge">
       <span class="dot" aria-hidden="true"></span>
       Arriving Soon
     </div>
+
   </header>
 
   <main class="hero">
+
     <div class="hero-main">
-      <p class="eyebrow">A quieter way to know the coast</p>
+
+      <p class="eyebrow">
+        A quieter way to know the coast
+      </p>
 
       <h1 class="headline">
         Your gateway to<br>everything <em>ELYU.</em>
@@ -442,95 +811,247 @@
         A considered hub for stays, places, and experiences across the coast — built for travelers who want the province's best, without the guesswork.
       </p>
 
-      <p class="tagline">Same waves. Brighter journeys ahead.</p>
+      <p class="tagline">
+        Same waves. Brighter journeys ahead.
+      </p>
 
       <div class="notify">
-        <form id="notify-form" action="https://formspree.io/f/xjykwoda" method="POST">
-          <input type="email" id="notify-email" name="email" placeholder="Your email" required aria-label="Email address">
-          <button type="submit">Notify me</button>
+
+        <form
+          id="notify-form"
+          action="https://formspree.io/f/xjykwoda"
+          method="POST"
+        >
+
+          <input
+            type="email"
+            id="notify-email"
+            name="email"
+            placeholder="Your email"
+            required
+            aria-label="Email address"
+          >
+
+          <button type="submit">
+            Notify me
+          </button>
+
         </form>
-        <p class="msg" id="notify-msg" role="status"></p>
+
+        <p
+          class="msg"
+          id="notify-msg"
+          role="status"
+        ></p>
+
       </div>
+
     </div>
 
-    <div class="modal-overlay" id="modal-overlay" hidden>
-      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <button type="button" class="modal-close" id="modal-close" aria-label="Close">&times;</button>
-        <h2 id="modal-title" class="modal-title">Just a few details</h2>
-        <p class="modal-sub">We'll only use this to let you know when La Union Gateway launches.</p>
+    <div
+      class="modal-overlay"
+      id="modal-overlay"
+      hidden
+    >
+
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+
+        <button
+          type="button"
+          class="modal-close"
+          id="modal-close"
+          aria-label="Close"
+        >&times;</button>
+
+        <h2
+          id="modal-title"
+          class="modal-title"
+        >
+          Just a few details
+        </h2>
+
+        <p class="modal-sub">
+          We'll only use this to let you know when La Union Gateway launches.
+        </p>
 
         <form id="modal-form">
-          <input type="hidden" id="modal-email" name="email">
-          <input type="hidden" name="_subject" value="New La Union Gateway signup">
-          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+          <input
+            type="hidden"
+            id="modal-email"
+            name="email"
+          >
+
+          <input
+            type="hidden"
+            name="_subject"
+            value="New La Union Gateway signup"
+          >
+
+          <input
+            type="text"
+            name="_gotcha"
+            style="display:none"
+            tabindex="-1"
+            autocomplete="off"
+          >
 
           <div class="field">
-            <label for="modal-name">Name</label>
-            <input type="text" id="modal-name" name="name" required autocomplete="name">
+
+            <label for="modal-name">
+              Name
+            </label>
+
+            <input
+              type="text"
+              id="modal-name"
+              name="name"
+              required
+              autocomplete="name"
+            >
+
           </div>
 
           <div class="field">
-            <label for="modal-phone">Phone number</label>
-            <input type="tel" id="modal-phone" name="phone" placeholder="+63 9XX XXX XXXX" required autocomplete="tel">
+
+            <label for="modal-phone">
+              Phone number
+            </label>
+
+            <input
+              type="tel"
+              id="modal-phone"
+              name="phone"
+              placeholder="+63 9XX XXX XXXX"
+              required
+              autocomplete="tel"
+            >
+
           </div>
 
           <div class="field">
-            <label for="modal-message">Message</label>
-            <textarea id="modal-message" name="message" rows="3" placeholder="What are you looking for?" required></textarea>
+
+            <label for="modal-message">
+              Message
+            </label>
+
+            <textarea
+              id="modal-message"
+              name="message"
+              rows="3"
+              placeholder="What are you looking for?"
+              required
+            ></textarea>
+
           </div>
 
-          <button type="submit" class="modal-submit">Send</button>
+          <button
+            type="submit"
+            class="modal-submit"
+          >
+            Send
+          </button>
+
         </form>
 
-        <p class="modal-msg" id="modal-msg" role="status"></p>
+        <p
+          class="modal-msg"
+          id="modal-msg"
+          role="status"
+        ></p>
+
       </div>
+
     </div>
 
-    <aside class="panel" aria-label="What's coming to La Union Gateway">
+    <aside
+      class="panel"
+      aria-label="What's coming to La Union Gateway"
+    >
+
       <div class="feature">
+
         <span class="num">I</span>
+
         <div>
           <h3>Stays</h3>
-          <p>Beach Resorts, Hostels, Transients, Homestays &amp; more</p>
+          <p>
+            Beach Resorts, Hostels, Transients, Homestays &amp; more
+          </p>
         </div>
+
       </div>
+
       <div class="feature">
+
         <span class="num">II</span>
+
         <div>
           <h3>Explore</h3>
-          <p>Discover towns, beaches &amp; destinations</p>
+          <p>
+            Discover towns, beaches &amp; destinations
+          </p>
         </div>
+
       </div>
+
       <div class="feature">
+
         <span class="num">III</span>
+
         <div>
           <h3>Local</h3>
-          <p>Connect directly with local businesses</p>
+          <p>
+            Connect directly with local businesses
+          </p>
         </div>
+
       </div>
+
       <div class="feature">
+
         <span class="num">IV</span>
+
         <div>
           <h3>Guides</h3>
-          <p>Curated places, stories &amp; recommendations</p>
+          <p>
+            Curated places, stories &amp; recommendations
+          </p>
         </div>
+
       </div>
+
     </aside>
+
   </main>
 
   <footer class="footer">
-    <p>&copy; 2026 La Union Gateway by L|G|R. All rights reserved.</p>
+
+    <p>
+      &copy; 2026 La Union Gateway by L|G|R. All rights reserved.
+    </p>
+
     <div class="footer-nav">
+
       <span>Stay</span>
       <span>Explore</span>
       <span>Discover</span>
       <span>Connect</span>
       <span>Experience</span>
+
     </div>
+
   </footer>
+
 </div>
 
 <script>
+
   var form = document.getElementById('notify-form');
   var emailInput = document.getElementById('notify-email');
   var msg = document.getElementById('notify-msg');
@@ -545,75 +1066,131 @@
   var lastFocused = null;
 
   function openModal(){
+
     lastFocused = document.activeElement;
+
     modalEmail.value = emailInput.value;
+
     overlay.hidden = false;
+
     document.body.style.overflow = 'hidden';
+
     modalName.focus();
   }
 
   function closeModal(){
+
     overlay.hidden = true;
+
     document.body.style.overflow = '';
+
     modalMsg.textContent = '';
+
     if (lastFocused) lastFocused.focus();
   }
 
   // Step 1: email field just opens the details popup
+
   form.addEventListener('submit', function(e){
+
     e.preventDefault();
+
     if (!emailInput.checkValidity()) {
+
       emailInput.reportValidity();
+
       return;
     }
+
     openModal();
   });
 
   modalClose.addEventListener('click', closeModal);
+
   overlay.addEventListener('click', function(e){
+
     if (e.target === overlay) closeModal();
   });
+
   document.addEventListener('keydown', function(e){
+
     if (e.key === 'Escape' && !overlay.hidden) closeModal();
   });
 
   // Step 2: popup collects the rest and sends everything to Formspree
+
   modalForm.addEventListener('submit', function(e){
+
     e.preventDefault();
 
     modalSubmitBtn.disabled = true;
+
     modalMsg.textContent = 'Sending…';
 
     fetch(form.action, {
+
       method: 'POST',
+
       body: new FormData(modalForm),
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(function(response){
-      if (response.ok) {
-        closeModal();
-        msg.textContent = "You're on the list — we'll be in touch.";
-        form.reset();
-        modalForm.reset();
-      } else {
-        response.json().then(function(data){
-          if (data && data.errors && data.errors.length) {
-            modalMsg.textContent = data.errors.map(function(err){ return err.message; }).join(', ');
-          } else {
-            modalMsg.textContent = 'Something went wrong. Please try again.';
-          }
-        }).catch(function(){
-          modalMsg.textContent = 'Something went wrong. Please try again.';
-        });
+
+      headers: {
+        'Accept': 'application/json'
       }
+
     })
+
+    .then(function(response){
+
+      if (response.ok) {
+
+        closeModal();
+
+        msg.textContent = "You're on the list — we'll be in touch.";
+
+        form.reset();
+
+        modalForm.reset();
+
+      } else {
+
+        response.json().then(function(data){
+
+          if (data && data.errors && data.errors.length) {
+
+            modalMsg.textContent = data.errors.map(function(err){
+              return err.message;
+            }).join(', ');
+
+          } else {
+
+            modalMsg.textContent = 'Something went wrong. Please try again.';
+
+          }
+
+        }).catch(function(){
+
+          modalMsg.textContent = 'Something went wrong. Please try again.';
+
+        });
+
+      }
+
+    })
+
     .catch(function(){
+
       modalMsg.textContent = 'Something went wrong. Please check your connection.';
+
     })
+
     .finally(function(){
+
       modalSubmitBtn.disabled = false;
+
     });
+
   });
+
 </script>
 
 </body>
