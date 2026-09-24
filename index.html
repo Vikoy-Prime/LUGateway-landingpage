@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -257,7 +257,33 @@
   .headline em{
     font-style:italic;
     font-weight:450;
+
+    background:linear-gradient(
+      100deg,
+      var(--gold-soft) 30%,
+      #fff6de 45%,
+      var(--gold-soft) 60%
+    );
+    background-size:250% 100%;
+    background-position:100% 0;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
     color:var(--gold-soft);
+  }
+
+  @media (prefers-reduced-motion:no-preference){
+    .headline em{
+      animation:shimmer 4.5s ease-in-out infinite;
+      animation-delay:1.2s;
+    }
+  }
+
+  @keyframes shimmer{
+    0%{background-position:100% 0;}
+    50%{background-position:0% 0;}
+    100%{background-position:100% 0;}
   }
 
   .desc{
@@ -325,7 +351,7 @@
     color:rgba(243,237,225,0.65);
     opacity:1;
     font-weight:600;
-    font-size:17px;
+    font-size:22px;
   }
 
   @media (prefers-reduced-motion:no-preference){
@@ -828,7 +854,7 @@
             type="email"
             id="notify-email"
             name="email"
-            placeholder="Your email"
+            placeholder="&#9993;"
             required
             aria-label="Email address"
           >
