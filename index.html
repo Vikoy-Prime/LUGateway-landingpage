@@ -321,6 +321,17 @@
     opacity:1;
   }
 
+  @media (prefers-reduced-motion:no-preference){
+    .notify input:placeholder-shown{
+      animation:blink-placeholder 1.6s ease-in-out infinite;
+    }
+  }
+
+  @keyframes blink-placeholder{
+    0%,100%{opacity:1;}
+    50%{opacity:0.35;}
+  }
+
   .notify button{
     background:rgba(255,183,94,0.50);
     border:1px solid rgba(255,183,94,0.65);
@@ -810,7 +821,7 @@
             type="email"
             id="notify-email"
             name="email"
-            placeholder="Binks"
+            placeholder="Your email"
             required
             aria-label="Email address"
           >
