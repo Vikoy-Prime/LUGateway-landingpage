@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -74,6 +74,22 @@
     flex-direction:column;
     isolation:isolate;
     overflow:hidden;
+    background:var(--ink);
+  }
+
+  /* ---------- hero background slideshow ---------- */
+
+  .hero-slideshow{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    overflow:hidden;
+    pointer-events:none;
+  }
+
+  .hero-slide{
+    position:absolute;
+    inset:0;
 
     background:
       radial-gradient(
@@ -92,11 +108,28 @@
         rgba(13,39,51,0.24) 46%,
         rgba(10,30,40,0.42) 100%
       ),
-      url("./images/beach-bg.webp");
+      var(--slide-image);
 
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
+
+    opacity:0;
+    transform:scale(1.025);
+    transition:opacity 1.2s ease, transform 5.8s ease;
+    will-change:opacity,transform;
+  }
+
+  .hero-slide.is-active{
+    opacity:1;
+    transform:scale(1);
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .hero-slide{
+      transition:none;
+      transform:none;
+    }
   }
 
 
@@ -780,6 +813,11 @@
 
 <div class="page">
 
+  <div class="hero-slideshow" aria-hidden="true">
+    <div class="hero-slide is-active" style='--slide-image:url("./images/beach-bg.webp")'></div>
+    <div class="hero-slide" style='--slide-image:url("./images/beach-bg2.webp")'></div>
+  </div>
+
   <div class="grain" aria-hidden="true"></div>
 
   <header class="header">
@@ -1052,6 +1090,46 @@
 </div>
 
 <script>
+
+  // Hero background slideshow: switches every 5 seconds.
+  (function(){
+    var slides = Array.prototype.slice.call(
+      document.querySelectorAll('.hero-slide')
+    );
+
+    if (slides.length > 1) {
+      var currentSlide = 0;
+      var slideTimer = null;
+
+      function showNextSlide(){
+        slides[currentSlide].classList.remove('is-active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('is-active');
+      }
+
+      function startSlideshow(){
+        if (slideTimer) clearInterval(slideTimer);
+        slideTimer = setInterval(showNextSlide, 5000);
+      }
+
+      function stopSlideshow(){
+        if (slideTimer) {
+          clearInterval(slideTimer);
+          slideTimer = null;
+        }
+      }
+
+      startSlideshow();
+
+      document.addEventListener('visibilitychange', function(){
+        if (document.hidden) {
+          stopSlideshow();
+        } else {
+          startSlideshow();
+        }
+      });
+    }
+  })();
 
   var form = document.getElementById('notify-form');
   var emailInput = document.getElementById('notify-email');
