@@ -1,0 +1,36 @@
+# La Union Gateway
+
+Website: https://launiongateway.com/
+
+La Union Gateway is a discovery platform for accommodations and travel-related businesses across La Union, Philippines.
+
+Its purpose is to help travelers discover places to stay in La Union and connect directly with accommodation providers.
+
+Main accommodation categories include:
+- Beach Resorts
+- Hotels and Resorts
+- Hotels
+- Transient Houses
+- Hostels
+- Villas
+- Apartelles
+- Guest Houses
+- Boutique Hotels
+
+The platform covers municipalities and destinations across La Union, including San Juan, San Fernando City, Bauang, Bacnotan, Luna, Agoo, and other municipalities in the province.
+
+Primary website sections:
+- Home
+- Stays
+- Explore
+- List Your Business
+- About
+
+For accommodation owners:
+La Union Gateway allows businesses to showcase their accommodation and help travelers discover their property.
+
+Canonical website:
+https://launiongateway.com/
+
+Sitemap:
+https://launiongateway.com/sitemap.xml
