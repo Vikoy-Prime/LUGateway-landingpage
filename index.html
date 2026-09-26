@@ -1,20 +1,17 @@
- 
-
-Index · HTML
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="La Union Gateway — Find your stay in La Union. Discover hotels, resorts, hostels, transient houses, villas, guest houses, and more across La Union, Philippines.">
 <title>La Union Gateway | Find Your Stay in La Union</title>
- 
+
 <!-- LA UNION GATEWAY FAVICON -->
 <link rel="icon" href="/favicon.ico" sizes="any">
- 
+
 <link rel="canonical" href="https://launiongateway.com/">
 <meta name="robots" content="index, follow">
- 
+
 <!-- GEO / STRUCTURED DATA -->
 <script type="application/ld+json">
 {
@@ -30,30 +27,30 @@ Index · HTML
   }
 }
 </script>
- 
+
 <!-- SOCIAL MEDIA PREVIEW -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="La Union Gateway">
 <meta property="og:url" content="https://launiongateway.com/">
 <meta property="og:title" content="La Union Gateway | Find Your Stay in La Union">
 <meta property="og:description" content="Find your stay in La Union. Discover hotels, resorts, hostels, transient houses, villas, guest houses, and more across La Union.">
- 
+
 <meta property="og:image" content="https://launiongateway.com/images/social-preview.png">
 <meta property="og:image:secure_url" content="https://launiongateway.com/images/social-preview.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="La Union Gateway">
- 
+
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="La Union Gateway | Find Your Stay in La Union">
 <meta name="twitter:description" content="Find your stay in La Union. Discover hotels, resorts, hostels, transient houses, villas, guest houses, and more across La Union.">
 <meta name="twitter:image" content="https://launiongateway.com/images/social-preview.png">
- 
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,560;1,9..144,450&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
- 
+
 <style>
   :root{
     --ink:#0a1a22;
@@ -65,20 +62,20 @@ Index · HTML
     --cream:#f3ede1;
     --line:rgba(231,215,181,0.22);
     --neon-green:#39ff14;
- 
+
     box-sizing:border-box;
     padding-top:env(safe-area-inset-top,0px);
     padding-bottom:env(safe-area-inset-bottom,0px);
   }
- 
+
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
- 
+
   html{
     scroll-padding-top:env(safe-area-inset-top,0px);
     width:100%;
     overflow-x:clip;
   }
- 
+
   body{
     font-family:'Jost',sans-serif;
     font-weight:300;
@@ -89,12 +86,12 @@ Index · HTML
     overflow-x:clip;
     -webkit-font-smoothing:antialiased;
   }
- 
+
   img,svg{max-width:100%;display:block;}
   a{color:inherit;}
- 
+
   /* ---------- page shell ---------- */
- 
+
   .page{
     position:relative;
     min-height:100vh;
@@ -105,9 +102,9 @@ Index · HTML
     overflow:hidden;
     background:var(--ink);
   }
- 
+
   /* ---------- hero background slideshow ---------- */
- 
+
   .hero-slideshow{
     position:absolute;
     inset:0;
@@ -115,11 +112,11 @@ Index · HTML
     overflow:hidden;
     pointer-events:none;
   }
- 
+
   .hero-slide{
     position:absolute;
     inset:0;
- 
+
     background:
       radial-gradient(
         ellipse 90% 60% at 78% -8%,
@@ -138,38 +135,38 @@ Index · HTML
         rgba(10,30,40,0.24) 100%
       ),
       var(--slide-image);
- 
+
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
- 
+
     opacity:0;
     transform:scale(1.025);
     transition:opacity 1.2s ease, transform 5.8s ease;
     will-change:opacity,transform;
   }
- 
+
   .hero-slide.is-active{
     opacity:1;
     transform:scale(1);
   }
- 
+
   @media (prefers-reduced-motion:reduce){
     .hero-slide{
       transition:none;
       transform:none;
     }
   }
- 
- 
+
+
   /* ---------- readability overlay for bright hero photos ---------- */
- 
+
   .hero-contrast{
     position:absolute;
     inset:0;
     z-index:1;
     pointer-events:none;
- 
+
     background:
       linear-gradient(
         90deg,
@@ -186,40 +183,40 @@ Index · HTML
         rgba(3,13,19,0.36) 100%
       );
   }
- 
+
   /* Keep texture above the contrast overlay. */
- 
- 
+
+
   .grain{
     position:absolute;
     inset:0;
- 
+
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
- 
+
     mix-blend-mode:overlay;
     pointer-events:none;
     z-index:2;
   }
- 
+
   /* ---------- header ---------- */
- 
+
   .header{
     position:relative;
     z-index:3;
- 
+
     width:100%;
     max-width:1400px;
     margin:0 auto;
- 
+
     padding:38px clamp(24px,5vw,64px) 0;
- 
+
     display:flex;
     align-items:flex-start;
     justify-content:space-between;
- 
+
     gap:24px;
   }
- 
+
   .wordmark{
     display:flex;
     flex-direction:row;
@@ -227,104 +224,104 @@ Index · HTML
     gap:12px;
     line-height:1;
   }
- 
+
   .wordmark .top{
     font-family:'Fraunces',serif;
     font-weight:450;
     font-size:clamp(20px,2.2vw,26px);
     letter-spacing:1px;
   }
- 
+
   .wordmark .bottom{
     font-size:15px;
     font-weight:400;
     letter-spacing:5px;
     color:var(--gold-soft);
   }
- 
+
   .badge{
     display:inline-flex;
     align-items:center;
     gap:11px;
- 
+
     padding:11px 20px;
- 
+
     border:1px solid var(--line);
     border-radius:2px;
- 
+
     font-size:10px;
     font-weight:400;
     letter-spacing:2.6px;
- 
+
     color:var(--sand);
     white-space:nowrap;
   }
- 
+
   .badge .dot{
     width:5px;
     height:5px;
     border-radius:50%;
- 
+
     background:var(--neon-green);
     box-shadow:0 0 8px 1px rgba(57,255,20,0.7);
   }
- 
+
   @media (prefers-reduced-motion:no-preference){
     .badge .dot{
       animation:breathe 3.2s ease-in-out infinite;
     }
   }
- 
+
   @keyframes breathe{
     0%,100%{opacity:1;}
     50%{opacity:0.35;}
   }
- 
+
   /* ---------- hero ---------- */
- 
+
   .hero{
     position:relative;
     z-index:3;
- 
+
     flex:1;
- 
+
     width:100%;
     max-width:1400px;
     margin:0 auto;
- 
+
     padding:clamp(56px,9vh,120px)
             clamp(24px,5vw,64px)
             clamp(40px,7vh,88px);
- 
+
     display:grid;
- 
+
     grid-template-columns:
       minmax(0,1fr)
       minmax(420px,520px);
- 
+
     align-items:end;
- 
+
     gap:clamp(40px,6vw,80px);
   }
- 
+
   .hero-main{
     max-width:760px;
   }
- 
+
   .eyebrow{
     font-size:12px;
     font-weight:400;
     letter-spacing:3.2px;
- 
+
     color:var(--gold-soft);
- 
+
     margin-bottom:26px;
- 
+
     display:flex;
     align-items:center;
     gap:14px;
   }
- 
+
   .eyebrow::before{
     content:"";
     width:34px;
@@ -332,140 +329,140 @@ Index · HTML
     background:var(--gold);
     flex-shrink:0;
   }
- 
+
   .headline{
     font-family:'Fraunces',serif;
     font-weight:450;
- 
+
     font-size:clamp(42px,6.4vw,84px);
     line-height:1.04;
     letter-spacing:-1px;
- 
+
     color:var(--cream);
     text-shadow:
       0 2px 10px rgba(0,0,0,0.34),
       0 8px 30px rgba(0,0,0,0.22);
   }
- 
+
   .headline em{
     font-style:italic;
     font-weight:450;
     color:var(--gold-soft);
   }
- 
+
   .desc{
     margin-top:28px;
     max-width:460px;
- 
+
     font-size:17px;
     line-height:1.8;
- 
+
     color:rgba(255,255,255,0.90);
     font-weight:400;
     text-shadow:0 2px 8px rgba(0,0,0,0.42);
   }
- 
+
   .tagline{
     margin-top:40px;
- 
+
     font-family:'Fraunces',serif;
     font-style:italic;
     font-weight:450;
- 
+
     font-size:clamp(20px,2.3vw,25px);
     color:var(--gold-soft);
- 
+
     padding-top:22px;
     border-top:1px solid var(--line);
- 
+
     max-width:460px;
     text-shadow:0 2px 8px rgba(0,0,0,0.38);
   }
- 
+
   /* notify form */
- 
+
   .notify{
     margin-top:44px;
     max-width:420px;
   }
- 
+
   .notify form{
     display:flex;
     align-items:center;
     gap:16px;
- 
+
     background:rgba(6,15,20,0.64);
     border:1px solid var(--line);
     border-radius:6px;
- 
+
     padding:6px 6px 6px 16px;
   }
- 
+
   .notify input{
     flex:1;
     min-width:0;
- 
+
     background:transparent;
     border:none;
     outline:none;
- 
+
     font-family:'Jost',sans-serif;
     font-weight:300;
     font-size:15px;
- 
+
     color:var(--cream);
     letter-spacing:0.3px;
   }
- 
+
   .notify input::placeholder{
     color:rgba(243,237,225,0.65);
     opacity:1;
     font-weight:600;
     font-size:17px;
   }
- 
+
   @media (prefers-reduced-motion:no-preference){
     .notify input:placeholder-shown{
       animation:blink-placeholder 1.6s ease-in-out infinite;
     }
   }
- 
+
   @keyframes blink-placeholder{
     0%,100%{opacity:1;}
     50%{opacity:0.35;}
   }
- 
+
   .notify button{
     background:rgba(255,183,94,0.50);
     border:1px solid rgba(255,183,94,0.65);
     border-radius:4px;
- 
+
     font-family:'Jost',sans-serif;
     font-size:13px;
     font-weight:700;
     letter-spacing:1.2px;
- 
+
     color:#102733;
     cursor:pointer;
     white-space:nowrap;
     padding:11px 17px;
     box-shadow:0 3px 14px rgba(0,0,0,0.24);
- 
+
     transition:background .25s ease, box-shadow .25s ease, transform .25s ease;
   }
- 
+
   .notify button:hover{
     background:rgba(255,210,140,0.68);
     box-shadow:0 5px 18px rgba(0,0,0,0.28);
     transform:translateY(-1px);
   }
- 
+
   .notify button:focus-visible,
   .notify input:focus-visible{
     outline:1px solid var(--gold-soft);
     outline-offset:4px;
   }
- 
+
   .notify .msg{
     margin-top:12px;
     font-size:12px;
@@ -473,180 +470,180 @@ Index · HTML
     color:var(--gold-soft);
     min-height:16px;
   }
- 
+
   /* ---------- modal ---------- */
- 
+
   .modal-overlay{
     position:fixed;
     inset:0;
- 
+
     background:rgba(6,15,20,0.74);
- 
+
     backdrop-filter:blur(6px);
     -webkit-backdrop-filter:blur(6px);
- 
+
     display:flex;
     align-items:center;
     justify-content:center;
- 
+
     padding:24px;
     z-index:50;
   }
- 
+
   .modal-overlay[hidden]{
     display:none;
   }
- 
+
   .modal{
     position:relative;
- 
+
     width:100%;
     max-width:440px;
- 
+
     background:linear-gradient(
       160deg,
       rgba(15,44,57,0.98),
       rgba(9,25,33,0.98)
     );
- 
+
     border:1px solid var(--line);
- 
+
     padding:clamp(32px,5vw,48px);
- 
+
     box-shadow:0 40px 100px rgba(0,0,0,0.5);
   }
- 
+
   @media (prefers-reduced-motion:no-preference){
     .modal{
       animation:rise .5s cubic-bezier(.19,1,.22,1) both;
     }
   }
- 
+
   .modal-close{
     position:absolute;
     top:18px;
     right:18px;
- 
+
     width:28px;
     height:28px;
- 
+
     display:flex;
     align-items:center;
     justify-content:center;
- 
+
     background:none;
     border:none;
- 
+
     font-size:20px;
     line-height:1;
- 
+
     color:var(--sand);
     cursor:pointer;
- 
+
     transition:color .2s ease;
   }
- 
+
   .modal-close:hover{
     color:var(--gold-soft);
   }
- 
+
   .modal-title{
     font-family:'Fraunces',serif;
     font-style:italic;
     font-weight:450;
- 
+
     font-size:26px;
     color:var(--cream);
   }
- 
+
   .modal-sub{
     margin-top:10px;
     margin-bottom:30px;
- 
+
     font-size:13px;
     line-height:1.6;
- 
+
     color:rgba(243,237,225,0.58);
     max-width:340px;
   }
- 
+
   .modal .field{
     margin-bottom:22px;
   }
- 
+
   .modal .field label{
     display:block;
     margin-bottom:9px;
- 
+
     font-size:10px;
     font-weight:500;
     letter-spacing:2.2px;
- 
+
     color:var(--gold-soft);
   }
- 
+
   .modal .field input,
   .modal .field textarea{
     width:100%;
- 
+
     background:transparent;
     border:none;
     border-bottom:1px solid var(--line);
     outline:none;
- 
+
     padding:6px 0 10px;
- 
+
     font-family:'Jost',sans-serif;
     font-weight:300;
     font-size:15px;
- 
+
     color:var(--cream);
     resize:vertical;
   }
- 
+
   .modal .field input::placeholder,
   .modal .field textarea::placeholder{
     color:rgba(243,237,225,0.35);
   }
- 
+
   .modal .field input:focus-visible,
   .modal .field textarea:focus-visible{
     outline:1px solid var(--gold-soft);
     outline-offset:4px;
   }
- 
+
   .modal-submit{
     margin-top:10px;
- 
+
     width:100%;
     padding:14px 0;
- 
+
     background:none;
     border:1px solid var(--gold);
- 
+
     font-family:'Jost',sans-serif;
     font-size:11px;
     font-weight:500;
     letter-spacing:2.6px;
- 
+
     color:var(--gold-soft);
     cursor:pointer;
- 
+
     transition:background .25s ease,color .25s ease;
   }
- 
+
   .modal-submit:hover{
     background:var(--gold);
     color:var(--ink);
   }
- 
+
   .modal-submit:disabled{
     opacity:0.55;
     cursor:default;
     background:none;
     color:var(--gold-soft);
   }
- 
+
   .modal-msg{
     margin-top:16px;
     font-size:12px;
@@ -654,22 +651,22 @@ Index · HTML
     color:var(--gold-soft);
     min-height:16px;
   }
- 
+
   /* ---------- feature panel ---------- */
- 
+
   .panel{
     justify-self:end;
     width:100%;
     max-width:520px;
- 
+
     background:rgba(5,20,27,0.16);
     border:1px solid rgba(231,215,181,0.08);
     border-radius:8px;
     padding:6px 24px;
- 
+
     backdrop-filter:blur(3px);
     -webkit-backdrop-filter:blur(3px);
- 
+
     /* Mouse-tilt effect (see script at bottom): smooth spring-back
        when the tilt is cleared on mouseleave. Individual tilt frames
        are applied inline by JS without a transition for responsiveness. */
@@ -677,95 +674,151 @@ Index · HTML
     transition:transform .5s cubic-bezier(.22,1,.36,1);
     will-change:transform;
   }
- 
+
   .feature{
     display:flex;
     align-items:flex-start;
     gap:24px;
- 
+
     padding:28px 0;
     border-top:1px solid var(--line);
+
+    cursor:default;
+    transition:transform .35s cubic-bezier(.22,1,.36,1),
+               border-top-color .35s ease,
+               padding-left .35s cubic-bezier(.22,1,.36,1);
   }
- 
+
   .feature:last-child{
     border-bottom:1px solid var(--line);
   }
- 
+
   .feature .num{
     font-family:'Fraunces',serif;
     font-style:italic;
     font-size:18px;
- 
+
     color:var(--gold);
- 
+
     flex-shrink:0;
     width:32px;
+
+    display:inline-block;
+    transition:color .35s ease, transform .35s cubic-bezier(.22,1,.36,1);
   }
- 
+
   .feature h3{
     font-family:'Jost',sans-serif;
- 
+
     font-size:22px;
     font-weight:500;
     letter-spacing:0.5px;
- 
+
     color:#fff;
     margin-bottom:8px;
     text-shadow:0 2px 10px rgba(0,0,0,0.34);
+    transition:color .35s ease, text-shadow .35s ease;
   }
- 
+
   .feature p{
     font-size:16px;
     line-height:1.7;
     color:rgba(255,255,255,0.88);
     font-weight:400;
     text-shadow:0 2px 8px rgba(0,0,0,0.42);
+    transition:color .35s ease;
   }
- 
+
+  /* Significant, unmissable hover reaction per row: the whole row
+     shifts right, the number swells and glows gold, the heading and
+     body copy brighten to gold/white, and the divider above the row
+     lights up. Pure CSS :hover, so it needs no JS and can never be
+     silently skipped by a device/media-query check. */
+
+  @media (hover:hover) and (pointer:fine){
+
+    .feature:hover{
+      transform:translateX(18px);
+      border-top-color:var(--gold);
+      padding-left:8px;
+    }
+
+    .feature:hover .num{
+      color:var(--gold-soft);
+      transform:scale(1.35) translateY(-2px);
+      text-shadow:0 0 18px rgba(231,215,181,0.55);
+    }
+
+    .feature:hover h3{
+      color:var(--gold-soft);
+      text-shadow:0 0 22px rgba(231,215,181,0.35), 0 2px 10px rgba(0,0,0,0.34);
+    }
+
+    .feature:hover p{
+      color:#fff;
+    }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .feature,
+    .feature .num{
+      transition:color .35s ease, text-shadow .35s ease;
+    }
+
+    .feature:hover{
+      transform:none;
+      padding-left:0;
+    }
+
+    .feature:hover .num{
+      transform:none;
+    }
+  }
+
   /* ---------- footer ---------- */
- 
+
   .footer{
     position:relative;
     z-index:3;
- 
+
     width:100%;
     max-width:1400px;
     margin:0 auto;
- 
+
     padding:26px clamp(24px,5vw,64px) 34px;
- 
+
     display:flex;
     justify-content:space-between;
     align-items:center;
- 
+
     flex-wrap:wrap;
     gap:16px;
- 
+
     border-top:1px solid var(--line);
- 
+
     font-size:10px;
     font-weight:400;
     letter-spacing:2px;
- 
+
     color:rgba(255,255,255,0.72);
     text-shadow:0 2px 8px rgba(0,0,0,0.38);
   }
- 
+
   .footer-nav{
     display:flex;
     flex-wrap:wrap;
     gap:26px;
   }
- 
+
   /* ---------- entrance ---------- */
- 
+
   @media (prefers-reduced-motion:no-preference){
- 
+
     .hero-main > *,
     .panel{
       animation:rise 1s cubic-bezier(.19,1,.22,1) both;
     }
- 
+
     .eyebrow{animation-delay:.05s;}
     .headline{animation-delay:.14s;}
     .desc{animation-delay:.24s;}
@@ -773,36 +826,36 @@ Index · HTML
     .notify{animation-delay:.42s;}
     .panel{animation-delay:.3s;}
   }
- 
+
   @keyframes rise{
     from{
       opacity:0;
       transform:translateY(18px);
     }
- 
+
     to{
       opacity:1;
       transform:translateY(0);
     }
   }
- 
+
   /* ---------- responsive ---------- */
- 
+
   @media (max-width:1120px){
- 
+
     .hero{
       grid-template-columns:minmax(0,1fr);
       align-items:start;
     }
- 
+
     .panel{
       justify-self:stretch;
       max-width:520px;
     }
   }
- 
+
   @media (max-width:640px){
- 
+
     .hero-contrast{
       background:
         linear-gradient(
@@ -818,44 +871,44 @@ Index · HTML
           rgba(4,17,24,0.26) 100%
         );
     }
- 
+
     .panel{
       padding:4px 18px;
       background:rgba(5,20,27,0.24);
     }
- 
- 
+
+
     .header{
       padding:28px 6% 0;
     }
- 
+
     .wordmark{
       flex-wrap:wrap;
     }
- 
+
     .wordmark .top{
       font-size:19px;
     }
- 
+
     .badge{
       padding:9px 15px;
       font-size:9px;
       letter-spacing:2px;
     }
- 
+
     .hero{
       padding:44px 6% 44px;
       gap:44px;
     }
- 
+
     /* Center only the mobile headline;
        preserve the desktop layout and other copy. */
- 
+
     .hero-main{
       width:100%;
       min-width:0;
     }
- 
+
     .headline{
       width:100%;
       font-size:clamp(31px,8.8vw,42px);
@@ -863,30 +916,30 @@ Index · HTML
       text-align:center;
       text-wrap:balance;
     }
- 
+
     .desc{
       font-size:15.5px;
       max-width:100%;
     }
- 
+
     .tagline{
       font-size:20px;
       max-width:100%;
     }
- 
+
     .notify{
       max-width:100%;
     }
- 
+
     .footer{
       flex-direction:column;
       align-items:flex-start;
       padding:22px 6% 28px;
     }
- 
+
     /* Keep the copyright statement on one line where it fits;
        wrap gracefully instead of overflowing on very narrow screens. */
- 
+
     .footer > p{
       width:100%;
       font-size:clamp(8px,2.3vw,9px);
@@ -896,77 +949,77 @@ Index · HTML
       overflow-wrap:break-word;
     }
   }
- 
+
   @media (prefers-reduced-motion:reduce){
- 
+
     html{
       scroll-behavior:auto;
     }
- 
+
     .hero-main > *,
     .panel,
     .badge .dot{
       animation:none !important;
     }
   }
- 
+
 </style>
 </head>
- 
+
 <body>
- 
+
 <div class="page">
- 
+
   <div class="hero-slideshow" aria-hidden="true">
     <div class="hero-slide is-active" style='--slide-image:url("./images/beach-bg.webp")'></div>
     <div class="hero-slide" style='--slide-image:url("./images/beach-bg2.webp")'></div>
   </div>
- 
+
   <div class="hero-contrast" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
- 
+
   <header class="header">
- 
+
     <div class="wordmark">
       <span class="top">La Union</span>
       <span class="bottom">GATEWAY</span>
     </div>
- 
+
     <div class="badge">
       <span class="dot" aria-hidden="true"></span>
       Arriving Soon
     </div>
- 
+
   </header>
- 
+
   <main class="hero">
- 
+
     <div class="hero-main">
- 
+
       <p class="eyebrow">
         LA UNION ACCOMMODATION GUIDE
       </p>
- 
+
       <h1 class="headline">
         Find your stay<br>in <em>La Union.</em>
       </h1>
- 
+
       <p class="desc">
         Discover hotels, resorts, hostels, transient houses, villas, guest houses, and more across La Union.
       </p>
- 
+
       <p class="tagline">
         Your place to discover stays across La Union.
       </p>
- 
+
       <div class="notify">
- 
+
         <form
           id="notify-form"
           action="https://formspree.io/f/xjykwoda"
           method="POST"
         >
- 
+
           <input
             type="email"
             id="notify-email"
@@ -975,68 +1028,68 @@ Index · HTML
             required
             aria-label="Email address"
           >
- 
+
           <button type="submit">
             Notify me
           </button>
- 
+
         </form>
- 
+
         <p
           class="msg"
           id="notify-msg"
           role="status"
         ></p>
- 
+
       </div>
- 
+
     </div>
- 
+
     <div
       class="modal-overlay"
       id="modal-overlay"
       hidden
     >
- 
+
       <div
         class="modal"
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
       >
- 
+
         <button
           type="button"
           class="modal-close"
           id="modal-close"
           aria-label="Close"
         >&times;</button>
- 
+
         <h2
           id="modal-title"
           class="modal-title"
         >
           Just a few details
         </h2>
- 
+
         <p class="modal-sub">
           We'll only use this to let you know when La Union Gateway launches.
         </p>
- 
+
         <form id="modal-form">
- 
+
           <input
             type="hidden"
             id="modal-email"
             name="email"
           >
- 
+
           <input
             type="hidden"
             name="_subject"
             value="New La Union Gateway signup"
           >
- 
+
           <input
             type="text"
             name="_gotcha"
@@ -1044,13 +1097,13 @@ Index · HTML
             tabindex="-1"
             autocomplete="off"
           >
- 
+
           <div class="field">
- 
+
             <label for="modal-name">
               Name
             </label>
- 
+
             <input
               type="text"
               id="modal-name"
@@ -1058,15 +1111,15 @@ Index · HTML
               required
               autocomplete="name"
             >
- 
+
           </div>
- 
+
           <div class="field">
- 
+
             <label for="modal-phone">
               Phone number
             </label>
- 
+
             <input
               type="tel"
               id="modal-phone"
@@ -1075,15 +1128,15 @@ Index · HTML
               required
               autocomplete="tel"
             >
- 
+
           </div>
- 
+
           <div class="field">
- 
+
             <label for="modal-message">
               Message
             </label>
- 
+
             <textarea
               id="modal-message"
               name="message"
@@ -1091,142 +1144,142 @@ Index · HTML
               placeholder="What are you looking for?"
               required
             ></textarea>
- 
+
           </div>
- 
+
           <button
             type="submit"
             class="modal-submit"
           >
             Send
           </button>
- 
+
         </form>
- 
+
         <p
           class="modal-msg"
           id="modal-msg"
           role="status"
         ></p>
- 
+
       </div>
- 
+
     </div>
- 
+
     <aside
       class="panel"
       id="feature-panel"
       aria-label="What's coming to La Union Gateway"
     >
- 
+
       <div class="feature">
- 
+
         <span class="num">I</span>
- 
+
         <div>
           <h3>Stays</h3>
           <p>
             Beach Resorts, Hostels, Transients, Homestays &amp; more
           </p>
         </div>
- 
+
       </div>
- 
+
       <div class="feature">
- 
+
         <span class="num">II</span>
- 
+
         <div>
           <h3>Explore</h3>
           <p>
             Discover towns, beaches &amp; destinations
           </p>
         </div>
- 
+
       </div>
- 
+
       <div class="feature">
- 
+
         <span class="num">III</span>
- 
+
         <div>
           <h3>Local</h3>
           <p>
             Connect directly with local businesses
           </p>
         </div>
- 
+
       </div>
- 
+
       <div class="feature">
- 
+
         <span class="num">IV</span>
- 
+
         <div>
           <h3>Guides</h3>
           <p>
             Curated places, stories &amp; recommendations
           </p>
         </div>
- 
+
       </div>
- 
+
     </aside>
- 
+
   </main>
- 
+
   <footer class="footer">
- 
+
     <p>
       &copy; 2026 La Union Gateway by L|G|R. All rights reserved.
     </p>
- 
+
     <div class="footer-nav">
- 
+
       <span>Stay</span>
       <span>Explore</span>
       <span>Discover</span>
       <span>Connect</span>
       <span>Experience</span>
- 
+
     </div>
- 
+
   </footer>
- 
+
 </div>
- 
+
 <script>
- 
+
   // Hero background slideshow: switches every 5 seconds.
   (function(){
     var slides = Array.prototype.slice.call(
       document.querySelectorAll('.hero-slide')
     );
- 
+
     if (slides.length > 1) {
       var currentSlide = 0;
       var slideTimer = null;
- 
+
       function showNextSlide(){
         slides[currentSlide].classList.remove('is-active');
         currentSlide = (currentSlide + 1) % slides.length;
         slides[currentSlide].classList.add('is-active');
       }
- 
+
       function startSlideshow(){
         if (slideTimer) clearInterval(slideTimer);
         slideTimer = setInterval(showNextSlide, 5000);
       }
- 
+
       function stopSlideshow(){
         if (slideTimer) {
           clearInterval(slideTimer);
           slideTimer = null;
         }
       }
- 
+
       startSlideshow();
- 
+
       document.addEventListener('visibilitychange', function(){
         if (document.hidden) {
           stopSlideshow();
@@ -1236,7 +1289,7 @@ Index · HTML
       });
     }
   })();
- 
+
   // Feature panel mouse-tilt: the panel gently rotates in 3D toward
   // wherever the cursor is over it, and springs back to flat on
   // mouseleave. Skipped entirely for touch devices (no hover to
@@ -1244,40 +1297,41 @@ Index · HTML
   (function(){
     var panel = document.getElementById('feature-panel');
     if (!panel) return;
- 
+
     var prefersReducedMotion = window.matchMedia(
       '(prefers-reduced-motion: reduce)'
     ).matches;
- 
+
     var canHover = window.matchMedia(
       '(hover: hover) and (pointer: fine)'
     ).matches;
- 
+
     if (prefersReducedMotion || !canHover) return;
- 
-    var MAX_TILT = 6; // degrees
+
+    var MAX_TILT = 14; // degrees — pronounced, easy to notice
     var rafId = null;
     var pendingEvent = null;
- 
+
     function applyTilt(e){
       rafId = null;
- 
+
       var rect = panel.getBoundingClientRect();
- 
+
       var x = (e.clientX - rect.left) / rect.width;  // 0..1
       var y = (e.clientY - rect.top) / rect.height;  // 0..1
- 
+
       var rotateY = (x - 0.5) * (MAX_TILT * 2);
       var rotateX = (0.5 - y) * (MAX_TILT * 2);
- 
+
       panel.style.transition = 'transform .08s linear';
       panel.style.transform =
         'perspective(900px) ' +
         'rotateX(' + rotateX.toFixed(2) + 'deg) ' +
         'rotateY(' + rotateY.toFixed(2) + 'deg) ' +
-        'translateZ(4px)';
+        'translateZ(20px) scale(1.03)';
+      panel.style.boxShadow = '0 30px 70px rgba(0,0,0,0.45)';
     }
- 
+
     panel.addEventListener('mousemove', function(e){
       pendingEvent = e;
       if (rafId === null) {
@@ -1286,22 +1340,23 @@ Index · HTML
         });
       }
     });
- 
+
     panel.addEventListener('mouseleave', function(){
       if (rafId !== null) {
         cancelAnimationFrame(rafId);
         rafId = null;
       }
-      panel.style.transition = 'transform .5s cubic-bezier(.22,1,.36,1)';
+      panel.style.transition = 'transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease';
       panel.style.transform =
-        'perspective(900px) rotateX(0deg) rotateY(0deg) translateZ(0)';
+        'perspective(900px) rotateX(0deg) rotateY(0deg) translateZ(0) scale(1)';
+      panel.style.boxShadow = 'none';
     });
   })();
- 
+
   var form = document.getElementById('notify-form');
   var emailInput = document.getElementById('notify-email');
   var msg = document.getElementById('notify-msg');
- 
+
   var overlay = document.getElementById('modal-overlay');
   var modalForm = document.getElementById('modal-form');
   var modalEmail = document.getElementById('modal-email');
@@ -1310,7 +1365,7 @@ Index · HTML
   var modalClose = document.getElementById('modal-close');
   var modalSubmitBtn = modalForm.querySelector('button');
   var lastFocused = null;
- 
+
   function getFocusable(){
     return Array.prototype.slice.call(
       overlay.querySelectorAll(
@@ -1318,165 +1373,161 @@ Index · HTML
       )
     );
   }
- 
+
   function trapFocus(e){
- 
+
     if (e.key !== 'Tab') return;
- 
+
     var focusable = getFocusable();
- 
+
     if (!focusable.length) return;
- 
+
     var first = focusable[0];
     var last = focusable[focusable.length - 1];
- 
+
     if (e.shiftKey && document.activeElement === first) {
- 
+
       e.preventDefault();
       last.focus();
- 
+
     } else if (!e.shiftKey && document.activeElement === last) {
- 
+
       e.preventDefault();
       first.focus();
     }
   }
- 
+
   function openModal(){
- 
+
     lastFocused = document.activeElement;
- 
+
     modalEmail.value = emailInput.value;
- 
+
     overlay.hidden = false;
- 
+
     document.body.style.overflow = 'hidden';
- 
+
     modalName.focus();
- 
+
     document.addEventListener('keydown', trapFocus);
   }
- 
+
   function closeModal(){
- 
+
     overlay.hidden = true;
- 
+
     document.body.style.overflow = '';
- 
+
     modalMsg.textContent = '';
- 
+
     document.removeEventListener('keydown', trapFocus);
- 
+
     if (lastFocused) lastFocused.focus();
   }
- 
+
   // Step 1: email field just opens the details popup
- 
+
   form.addEventListener('submit', function(e){
- 
+
     e.preventDefault();
- 
+
     if (!emailInput.checkValidity()) {
- 
+
       emailInput.reportValidity();
- 
+
       return;
     }
- 
+
     openModal();
   });
- 
+
   modalClose.addEventListener('click', closeModal);
- 
+
   overlay.addEventListener('click', function(e){
- 
+
     if (e.target === overlay) closeModal();
   });
- 
+
   document.addEventListener('keydown', function(e){
- 
+
     if (e.key === 'Escape' && !overlay.hidden) closeModal();
   });
- 
+
   // Step 2: popup collects the rest and sends everything to Formspree
- 
+
   modalForm.addEventListener('submit', function(e){
- 
+
     e.preventDefault();
- 
+
     modalSubmitBtn.disabled = true;
- 
+
     modalMsg.textContent = 'Sending…';
- 
+
     fetch(form.action, {
- 
+
       method: 'POST',
- 
+
       body: new FormData(modalForm),
- 
+
       headers: {
         'Accept': 'application/json'
       }
- 
+
     })
- 
+
     .then(function(response){
- 
+
       if (response.ok) {
- 
+
         closeModal();
- 
+
         msg.textContent = "You're on the list — we'll be in touch.";
- 
+
         form.reset();
- 
+
         modalForm.reset();
- 
+
       } else {
- 
+
         response.json().then(function(data){
- 
+
           if (data && data.errors && data.errors.length) {
- 
+
             modalMsg.textContent = data.errors.map(function(err){
               return err.message;
             }).join(', ');
- 
+
           } else {
- 
+
             modalMsg.textContent = 'Something went wrong. Please try again.';
- 
+
           }
- 
+
         }).catch(function(){
- 
+
           modalMsg.textContent = 'Something went wrong. Please try again.';
- 
+
         });
- 
+
       }
- 
+
     })
- 
+
     .catch(function(){
- 
+
       modalMsg.textContent = 'Something went wrong. Please check your connection.';
- 
+
     })
- 
+
     .finally(function(){
- 
+
       modalSubmitBtn.disabled = false;
- 
+
     });
- 
+
   });
- 
+
 </script>
- 
+
 </body>
 </html>
- 
-
-
-
