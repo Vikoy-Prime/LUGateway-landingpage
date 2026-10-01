@@ -20,19 +20,33 @@
 <link rel="canonical" href="https://launiongateway.com/">
 <meta name="robots" content="index, follow">
 
-<!-- GEO / STRUCTURED DATA -->
+<!-- SEO / GEO STRUCTURED DATA -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "La Union Gateway",
-  "url": "https://launiongateway.com/",
-  "description": "Find your stay in La Union. Discover hotels, resorts, hostels, transient houses, villas, guest houses, and more across La Union, Philippines.",
-  "inLanguage": "en-PH",
-  "about": {
-    "@type": "Thing",
-    "name": "Accommodations in La Union, Philippines"
-  }
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://launiongateway.com/#organization",
+      "name": "La Union Gateway",
+      "url": "https://launiongateway.com/"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://launiongateway.com/#website",
+      "name": "La Union Gateway",
+      "url": "https://launiongateway.com/",
+      "description": "Find your stay in La Union. Discover hotels, resorts, hostels, transient houses, villas, guest houses, and more across La Union, Philippines.",
+      "inLanguage": "en-PH",
+      "publisher": {
+        "@id": "https://launiongateway.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Accommodations in La Union, Philippines"
+      }
+    }
+  ]
 }
 </script>
 
