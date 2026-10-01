@@ -859,7 +859,10 @@
 
   @media (prefers-reduced-motion:no-preference){
 
-    .hero-main > *,
+    .hero-main > *{
+      animation:rise-visible 1s cubic-bezier(.19,1,.22,1) both;
+    }
+
     .panel{
       animation:rise 1s cubic-bezier(.19,1,.22,1) both;
     }
@@ -870,6 +873,16 @@
     .tagline{animation-delay:.34s;}
     .notify{animation-delay:.42s;}
     .panel{animation-delay:.3s;}
+  }
+
+  @keyframes rise-visible{
+    from{
+      transform:translateY(18px);
+    }
+
+    to{
+      transform:translateY(0);
+    }
   }
 
   @keyframes rise{
