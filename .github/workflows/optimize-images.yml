@@ -42,7 +42,7 @@ jobs:
           pngquant --quality=90-100 --speed 1 --skip-if-larger --force --output favicon.png favicon.png || true
           pngquant --quality=90-100 --speed 1 --skip-if-larger --force --output images/logo.png images/logo.png || true
           pngquant --quality=90-100 --speed 1 --skip-if-larger --force --output images/gateway-wordmark.png images/gateway-wordmark.png || true
-          pngquant --quality=82-95 --speed 1 --skip-if-larger --force --output images/social-preview-v2.png images/social-preview-v2.png || true
+          pngquant --quality=70-85 --speed 1 --skip-if-larger --force --output images/social-preview-v2.png images/social-preview-v2.png || true
 
       - name: Validate optimized images
         run: |
