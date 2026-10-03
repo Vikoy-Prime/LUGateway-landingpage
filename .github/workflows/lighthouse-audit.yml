@@ -1,0 +1,78 @@
+name: Lighthouse live audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lighthouse-audit.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Lighthouse
+        run: npm install -g lighthouse
+
+      - name: Mobile audit
+        run: |
+          lighthouse https://launiongateway.com/ \
+            --chrome-flags="--headless --no-sandbox" \
+            --only-categories=performance \
+            --output=json \
+            --output-path=mobile.json \
+            --quiet
+          node - <<'NODE'
+          const fs=require('fs');
+          const r=JSON.parse(fs.readFileSync('mobile.json','utf8'));
+          const a=r.audits;
+          console.log(JSON.stringify({
+            mode:'mobile',
+            performance:Math.round((r.categories.performance.score||0)*100),
+            fcp:a['first-contentful-paint']?.displayValue,
+            lcp:a['largest-contentful-paint']?.displayValue,
+            cls:a['cumulative-layout-shift']?.displayValue,
+            tbt:a['total-blocking-time']?.displayValue,
+            speedIndex:a['speed-index']?.displayValue,
+            interactive:a['interactive']?.displayValue,
+            lcpElement:a['largest-contentful-paint-element']?.details?.items?.[0]?.node?.snippet || null,
+            diagnostics:{
+              renderBlocking:a['render-blocking-resources']?.displayValue || null,
+              unusedJs:a['unused-javascript']?.displayValue || null,
+              unusedCss:a['unused-css-rules']?.displayValue || null,
+              modernImage:a['uses-webp-images']?.displayValue || null,
+              imageSizing:a['uses-responsive-images']?.displayValue || null,
+              cachePolicy:a['uses-long-cache-ttl']?.displayValue || null
+            }
+          },null,2));
+          NODE
+
+      - name: Desktop audit
+        run: |
+          lighthouse https://launiongateway.com/ \
+            --preset=desktop \
+            --chrome-flags="--headless --no-sandbox" \
+            --only-categories=performance \
+            --output=json \
+            --output-path=desktop.json \
+            --quiet
+          node - <<'NODE'
+          const fs=require('fs');
+          const r=JSON.parse(fs.readFileSync('desktop.json','utf8'));
+          const a=r.audits;
+          console.log(JSON.stringify({
+            mode:'desktop',
+            performance:Math.round((r.categories.performance.score||0)*100),
+            fcp:a['first-contentful-paint']?.displayValue,
+            lcp:a['largest-contentful-paint']?.displayValue,
+            cls:a['cumulative-layout-shift']?.displayValue,
+            tbt:a['total-blocking-time']?.displayValue,
+            speedIndex:a['speed-index']?.displayValue,
+            interactive:a['interactive']?.displayValue,
+            lcpElement:a['largest-contentful-paint-element']?.details?.items?.[0]?.node?.snippet || null
+          },null,2));
+          NODE
