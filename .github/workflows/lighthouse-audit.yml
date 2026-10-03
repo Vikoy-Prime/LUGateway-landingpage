@@ -3,8 +3,6 @@ name: Lighthouse live audit
 on:
   push:
     branches: [main]
-    paths:
-      - '.github/workflows/lighthouse-audit.yml'
 
 permissions:
   contents: read
