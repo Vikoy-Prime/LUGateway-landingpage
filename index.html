@@ -11,8 +11,9 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="La Union Gateway — Find your stay in La Union. Discover hotels, resorts, hostels, transient houses, villas, guest houses, and more across La Union, Philippines.">
-<title>La Union Gateway | Find Your Stay in La Union</title>
+<meta name="theme-color" content="#0a1a22">
+<meta name="description" content="Find hotels, resorts, hostels, transient houses, villas and guest houses across La Union, Philippines. Discover local stays with La Union Gateway.">
+<title>La Union Hotels, Resorts & Stays | La Union Gateway</title>
 
 <!-- LA UNION GATEWAY FAVICON -->
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png">
@@ -20,7 +21,9 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
 
 <link rel="canonical" href="https://launiongateway.com/">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="googlebot" content="index, follow, max-image-preview:large">
+<link rel="preload" as="image" href="/images/beach-bg.webp" type="image/webp" fetchpriority="high">
 
 <!-- SEO / GEO STRUCTURED DATA -->
 <script type="application/ld+json">
@@ -39,15 +42,36 @@
       "@id": "https://launiongateway.com/#website",
       "name": "La Union Gateway",
       "url": "https://launiongateway.com/",
-      "description": "Find your stay in La Union. Discover hotels, resorts, hostels, transient houses, villas, guest houses, and more across La Union, Philippines.",
+      "description": "Find hotels, resorts, hostels, transient houses, villas and guest houses across La Union, Philippines.",
       "inLanguage": "en-PH",
       "publisher": {
         "@id": "https://launiongateway.com/#organization"
       },
       "about": {
-        "@type": "Thing",
-        "name": "Accommodations in La Union, Philippines"
+        "@type": "Place",
+        "name": "La Union, Philippines"
       }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://launiongateway.com/#webpage",
+      "url": "https://launiongateway.com/",
+      "name": "La Union Hotels, Resorts & Stays | La Union Gateway",
+      "description": "Find hotels, resorts, hostels, transient houses, villas and guest houses across La Union, Philippines. Discover local stays with La Union Gateway.",
+      "isPartOf": {
+        "@id": "https://launiongateway.com/#website"
+      },
+      "about": {
+        "@type": "Place",
+        "name": "La Union, Philippines"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://launiongateway.com/images/social-preview-v2.png",
+        "width": 1200,
+        "height": 630
+      },
+      "inLanguage": "en-PH"
     }
   ]
 }
@@ -57,8 +81,8 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="La Union Gateway">
 <meta property="og:url" content="https://launiongateway.com/">
-<meta property="og:title" content="La Union Gateway | Find Your Stay in La Union">
-<meta property="og:description" content="Find your stay in La Union. Discover hotels, resorts, hostels, transient houses, villas, guest houses, and more across La Union.">
+<meta property="og:title" content="La Union Hotels, Resorts & Stays | La Union Gateway">
+<meta property="og:description" content="Find hotels, resorts, hostels, transient houses, villas and guest houses across La Union, Philippines. Discover local stays with La Union Gateway.">
 
 <meta property="og:image" content="https://launiongateway.com/images/social-preview-v2.png">
 <meta property="og:image:secure_url" content="https://launiongateway.com/images/social-preview-v2.png">
@@ -68,8 +92,8 @@
 <meta property="og:image:alt" content="La Union Gateway">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="La Union Gateway | Find Your Stay in La Union">
-<meta name="twitter:description" content="Find your stay in La Union. Discover hotels, resorts, hostels, transient houses, villas, guest houses, and more across La Union.">
+<meta name="twitter:title" content="La Union Hotels, Resorts & Stays | La Union Gateway">
+<meta name="twitter:description" content="Find hotels, resorts, hostels, transient houses, villas and guest houses across La Union, Philippines. Discover local stays with La Union Gateway.">
 <meta name="twitter:image" content="https://launiongateway.com/images/social-preview-v2.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -857,6 +881,28 @@
     gap:26px;
   }
 
+  .footer-nav a{
+    text-decoration:none;
+    text-underline-offset:4px;
+  }
+
+  .footer-nav a:hover,
+  .footer-nav a:focus-visible{
+    text-decoration:underline;
+  }
+
+  .sr-only{
+    position:absolute !important;
+    width:1px !important;
+    height:1px !important;
+    padding:0 !important;
+    margin:-1px !important;
+    overflow:hidden !important;
+    clip:rect(0,0,0,0) !important;
+    white-space:nowrap !important;
+    border:0 !important;
+  }
+
   /* ---------- entrance ---------- */
 
   @media (prefers-reduced-motion:no-preference){
@@ -1010,6 +1056,25 @@
     }
   }
 
+  @media (max-width:420px){
+    .notify form{
+      flex-direction:column;
+      align-items:stretch;
+      gap:8px;
+      padding:10px;
+    }
+
+    .notify input{
+      min-height:44px;
+      padding:0 4px;
+    }
+
+    .notify button{
+      width:100%;
+      min-height:44px;
+    }
+  }
+
   @media (prefers-reduced-motion:reduce){
 
     html{
@@ -1052,7 +1117,7 @@
 
   </header>
 
-  <main class="hero">
+  <main class="hero" id="main-content">
 
     <div class="hero-main">
 
@@ -1229,13 +1294,12 @@
     <aside
       class="panel"
       id="feature-panel"
-      aria-label="What's coming to La Union Gateway"
+      aria-labelledby="coming-title"
     >
+      <h2 class="sr-only" id="coming-title">What&apos;s coming to La Union Gateway</h2>
 
-      <div class="feature">
-
+      <div class="feature" id="stays">
         <span class="num">I</span>
-
         <div>
           <h3>Stays</h3>
           <p>
@@ -1245,10 +1309,8 @@
 
       </div>
 
-      <div class="feature">
-
+      <div class="feature" id="explore">
         <span class="num">II</span>
-
         <div>
           <h3>Explore</h3>
           <p>
@@ -1258,10 +1320,8 @@
 
       </div>
 
-      <div class="feature">
-
+      <div class="feature" id="local">
         <span class="num">III</span>
-
         <div>
           <h3>Local</h3>
           <p>
@@ -1271,10 +1331,8 @@
 
       </div>
 
-      <div class="feature">
-
+      <div class="feature" id="guides">
         <span class="num">IV</span>
-
         <div>
           <h3>Guides</h3>
           <p>
@@ -1294,15 +1352,13 @@
       &copy; 2026 La Union Gateway by L|G|R. All rights reserved.
     </p>
 
-    <div class="footer-nav">
-
-      <span>Stay</span>
-      <span>Explore</span>
-      <span>Discover</span>
-      <span>Connect</span>
-      <span>Experience</span>
-
-    </div>
+    <nav class="footer-nav" aria-label="Page sections">
+      <a href="#stays">Stay</a>
+      <a href="#explore">Explore</a>
+      <a href="#guides">Discover</a>
+      <a href="#local">Connect</a>
+      <a href="#main-content">Experience</a>
+    </nav>
 
   </footer>
 
