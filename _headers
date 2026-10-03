@@ -6,7 +6,11 @@ https://launiongateway.com/*
   Permissions-Policy: geolocation=(), camera=(), microphone=()
   Link: </images/beach-bg.webp>; rel=preload; as=image; type="image/webp"
 
-https://lugateway-landingpage.pages.dev/*
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+  Link: <https://launiongateway.com/>; rel="canonical"
+
+https://:version.:project.pages.dev/*
   X-Robots-Tag: noindex, nofollow
   Link: <https://launiongateway.com/>; rel="canonical"
 
