@@ -1,0 +1,14 @@
+https://launiongateway.com/*
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=()
+  Link: </images/beach-bg.webp>; rel=preload; as=image; type="image/webp"
+
+https://lugateway-landingpage.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+  Link: <https://launiongateway.com/>; rel="canonical"
+
+/images/*
+  Cache-Control: public, max-age=604800
