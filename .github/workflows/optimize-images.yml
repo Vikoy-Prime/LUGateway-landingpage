@@ -1,0 +1,65 @@
+name: Optimize branding images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/optimize-images.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install image optimization tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick pngquant
+
+      - name: Record original image sizes
+        run: |
+          echo "Before:"
+          for f in favicon.png images/logo.png images/gateway-wordmark.png images/social-preview-v2.png; do
+            identify "$f"
+            stat -c '%n %s bytes' "$f"
+          done
+
+      - name: Resize oversized assets conservatively
+        run: |
+          mogrify -resize '180x180>' -strip favicon.png
+          mogrify -resize '512x512>' -strip images/logo.png
+          mogrify -resize '1200x600>' -strip images/gateway-wordmark.png
+          mogrify -strip images/social-preview-v2.png
+
+      - name: Compress PNG files
+        run: |
+          pngquant --quality=90-100 --speed 1 --skip-if-larger --force --output favicon.png favicon.png || true
+          pngquant --quality=90-100 --speed 1 --skip-if-larger --force --output images/logo.png images/logo.png || true
+          pngquant --quality=90-100 --speed 1 --skip-if-larger --force --output images/gateway-wordmark.png images/gateway-wordmark.png || true
+          pngquant --quality=82-95 --speed 1 --skip-if-larger --force --output images/social-preview-v2.png images/social-preview-v2.png || true
+
+      - name: Validate optimized images
+        run: |
+          echo "After:"
+          for f in favicon.png images/logo.png images/gateway-wordmark.png images/social-preview-v2.png; do
+            identify "$f"
+            stat -c '%n %s bytes' "$f"
+          done
+
+      - name: Commit optimized images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add favicon.png images/logo.png images/gateway-wordmark.png images/social-preview-v2.png
+          if git diff --cached --quiet; then
+            echo "No image changes were needed."
+          else
+            git commit -m "Optimize branding image assets"
+            git push origin main
+          fi
